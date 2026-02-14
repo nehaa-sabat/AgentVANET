@@ -1,0 +1,3602 @@
+[
+    {
+        "step": 0,
+        "total_vehicle_count": 1,
+        "avg_speed_network": 0.0,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 1,
+        "total_vehicle_count": 1,
+        "avg_speed_network": 1.5145738587714732,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 2,
+        "total_vehicle_count": 2,
+        "avg_speed_network": 1.8477742944261992,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 3,
+        "total_vehicle_count": 3,
+        "avg_speed_network": 2.711175309036238,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 27.08423326133909
+    },
+    {
+        "step": 4,
+        "total_vehicle_count": 3,
+        "avg_speed_network": 4.346314231220943,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 24.537414508249324
+    },
+    {
+        "step": 5,
+        "total_vehicle_count": 4,
+        "avg_speed_network": 4.613154620572459,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 22.122323126267933
+    },
+    {
+        "step": 6,
+        "total_vehicle_count": 5,
+        "avg_speed_network": 5.063544837199151,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 19.24658565261454
+    },
+    {
+        "step": 7,
+        "total_vehicle_count": 6,
+        "avg_speed_network": 5.9028047657532925,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 17.491617203956984
+    },
+    {
+        "step": 8,
+        "total_vehicle_count": 7,
+        "avg_speed_network": 6.706842818384804,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 16.11790384451731
+    },
+    {
+        "step": 9,
+        "total_vehicle_count": 8,
+        "avg_speed_network": 7.388652468164787,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.534182539640144
+    },
+    {
+        "step": 10,
+        "total_vehicle_count": 8,
+        "avg_speed_network": 8.591275699069099,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.954926563438455
+    },
+    {
+        "step": 11,
+        "total_vehicle_count": 9,
+        "avg_speed_network": 8.767236640487242,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.629098868406219
+    },
+    {
+        "step": 12,
+        "total_vehicle_count": 10,
+        "avg_speed_network": 8.890184165211561,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.822955395223268
+    },
+    {
+        "step": 13,
+        "total_vehicle_count": 10,
+        "avg_speed_network": 10.071084453248519,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.956179750284893
+    },
+    {
+        "step": 14,
+        "total_vehicle_count": 10,
+        "avg_speed_network": 10.730027960207543,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.475848064137653
+    },
+    {
+        "step": 15,
+        "total_vehicle_count": 11,
+        "avg_speed_network": 10.616616681725505,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.907809449738727
+    },
+    {
+        "step": 16,
+        "total_vehicle_count": 13,
+        "avg_speed_network": 9.762676401222906,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.770917276901368
+    },
+    {
+        "step": 17,
+        "total_vehicle_count": 13,
+        "avg_speed_network": 10.16833885661727,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.761714105661621
+    },
+    {
+        "step": 18,
+        "total_vehicle_count": 14,
+        "avg_speed_network": 10.098999338827435,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.836835404780974
+    },
+    {
+        "step": 19,
+        "total_vehicle_count": 15,
+        "avg_speed_network": 9.793808682267427,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.640029334422517
+    },
+    {
+        "step": 20,
+        "total_vehicle_count": 15,
+        "avg_speed_network": 10.032669098264677,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 21,
+        "total_vehicle_count": 15,
+        "avg_speed_network": 10.225988363135485,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 22,
+        "total_vehicle_count": 15,
+        "avg_speed_network": 10.992410051401274,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 23,
+        "total_vehicle_count": 15,
+        "avg_speed_network": 11.508141097666517,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 24,
+        "total_vehicle_count": 15,
+        "avg_speed_network": 12.103208925902738,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 25,
+        "total_vehicle_count": 16,
+        "avg_speed_network": 11.585822235996174,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 27.08423326133909
+    },
+    {
+        "step": 26,
+        "total_vehicle_count": 16,
+        "avg_speed_network": 11.729912713861498,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 24.505363920693956
+    },
+    {
+        "step": 27,
+        "total_vehicle_count": 17,
+        "avg_speed_network": 11.132823465185394,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 21.456451915185465
+    },
+    {
+        "step": 28,
+        "total_vehicle_count": 19,
+        "avg_speed_network": 9.790484559756061,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 29.322665087079535
+    },
+    {
+        "step": 29,
+        "total_vehicle_count": 19,
+        "avg_speed_network": 9.961884990557547,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 23.7924717567973
+    },
+    {
+        "step": 30,
+        "total_vehicle_count": 19,
+        "avg_speed_network": 9.648558120214895,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 20.375604631284123
+    },
+    {
+        "step": 31,
+        "total_vehicle_count": 19,
+        "avg_speed_network": 9.536558522263311,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 18.4396501689179
+    },
+    {
+        "step": 32,
+        "total_vehicle_count": 20,
+        "avg_speed_network": 9.086383701164243,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 17.13540683820964
+    },
+    {
+        "step": 33,
+        "total_vehicle_count": 21,
+        "avg_speed_network": 9.20045752633044,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 15.81984619600101
+    },
+    {
+        "step": 34,
+        "total_vehicle_count": 19,
+        "avg_speed_network": 9.356824257398124,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 14.645808679788558
+    },
+    {
+        "step": 35,
+        "total_vehicle_count": 19,
+        "avg_speed_network": 9.693323665146602,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 14.942985973400125
+    },
+    {
+        "step": 36,
+        "total_vehicle_count": 20,
+        "avg_speed_network": 9.304116454840752,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 14.975363159656396
+    },
+    {
+        "step": 37,
+        "total_vehicle_count": 21,
+        "avg_speed_network": 9.142568914310173,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 14.990860399638379
+    },
+    {
+        "step": 38,
+        "total_vehicle_count": 19,
+        "avg_speed_network": 9.140572400115664,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 14.60666718744238
+    },
+    {
+        "step": 39,
+        "total_vehicle_count": 20,
+        "avg_speed_network": 9.18902577322426,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 15.179321904864592
+    },
+    {
+        "step": 40,
+        "total_vehicle_count": 20,
+        "avg_speed_network": 9.620419314727881,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 14.72181823637067
+    },
+    {
+        "step": 41,
+        "total_vehicle_count": 20,
+        "avg_speed_network": 10.003069639791203,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 14.848906164172154
+    },
+    {
+        "step": 42,
+        "total_vehicle_count": 22,
+        "avg_speed_network": 9.487717247725486,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 15.009890039779046
+    },
+    {
+        "step": 43,
+        "total_vehicle_count": 23,
+        "avg_speed_network": 9.441951570389078,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.915305985633042
+    },
+    {
+        "step": 44,
+        "total_vehicle_count": 23,
+        "avg_speed_network": 9.725382998577484,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.951860481928273
+    },
+    {
+        "step": 45,
+        "total_vehicle_count": 23,
+        "avg_speed_network": 9.678525784725418,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.860237091655495
+    },
+    {
+        "step": 46,
+        "total_vehicle_count": 24,
+        "avg_speed_network": 9.374661654883775,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.933380531586556
+    },
+    {
+        "step": 47,
+        "total_vehicle_count": 24,
+        "avg_speed_network": 8.830804994605506,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 48,
+        "total_vehicle_count": 24,
+        "avg_speed_network": 9.066168218533813,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 49,
+        "total_vehicle_count": 27,
+        "avg_speed_network": 8.32469176005896,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 50,
+        "total_vehicle_count": 25,
+        "avg_speed_network": 8.588821698256913,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 51,
+        "total_vehicle_count": 25,
+        "avg_speed_network": 8.552312155206844,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 52,
+        "total_vehicle_count": 28,
+        "avg_speed_network": 8.226824375645252,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 53,
+        "total_vehicle_count": 28,
+        "avg_speed_network": 8.882467499597775,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 54,
+        "total_vehicle_count": 29,
+        "avg_speed_network": 9.08373291285456,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 55,
+        "total_vehicle_count": 29,
+        "avg_speed_network": 9.05569005057045,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 56,
+        "total_vehicle_count": 29,
+        "avg_speed_network": 9.22888772060408,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 57,
+        "total_vehicle_count": 29,
+        "avg_speed_network": 9.671805773288208,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 58,
+        "total_vehicle_count": 31,
+        "avg_speed_network": 9.532339669451378,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 27.08423326133909
+    },
+    {
+        "step": 59,
+        "total_vehicle_count": 32,
+        "avg_speed_network": 9.813857214566854,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 24.681675007021802
+    },
+    {
+        "step": 60,
+        "total_vehicle_count": 33,
+        "avg_speed_network": 9.741043695515007,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 21.568682361175703
+    },
+    {
+        "step": 61,
+        "total_vehicle_count": 33,
+        "avg_speed_network": 9.674290884306776,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 19.39014119215699
+    },
+    {
+        "step": 62,
+        "total_vehicle_count": 33,
+        "avg_speed_network": 9.953785924452479,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 17.70559289980461
+    },
+    {
+        "step": 63,
+        "total_vehicle_count": 33,
+        "avg_speed_network": 9.85704100408095,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 15.921380337071291
+    },
+    {
+        "step": 64,
+        "total_vehicle_count": 35,
+        "avg_speed_network": 9.338690304679218,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 15.055691678750383
+    },
+    {
+        "step": 65,
+        "total_vehicle_count": 36,
+        "avg_speed_network": 9.277423052446064,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 20.633398698741857
+    },
+    {
+        "step": 66,
+        "total_vehicle_count": 36,
+        "avg_speed_network": 9.484400199962849,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 18.954851254702056
+    },
+    {
+        "step": 67,
+        "total_vehicle_count": 35,
+        "avg_speed_network": 9.407318629321587,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 17.20102190685973
+    },
+    {
+        "step": 68,
+        "total_vehicle_count": 34,
+        "avg_speed_network": 9.587928508196525,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 16.832194210277006
+    },
+    {
+        "step": 69,
+        "total_vehicle_count": 35,
+        "avg_speed_network": 9.877376232832034,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 20.60460780658172
+    },
+    {
+        "step": 70,
+        "total_vehicle_count": 36,
+        "avg_speed_network": 10.169732683669997,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 18.969111945212454
+    },
+    {
+        "step": 71,
+        "total_vehicle_count": 37,
+        "avg_speed_network": 10.24209221317507,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 17.235076576199873
+    },
+    {
+        "step": 72,
+        "total_vehicle_count": 38,
+        "avg_speed_network": 10.530599613483162,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 16.10979166617482
+    },
+    {
+        "step": 73,
+        "total_vehicle_count": 37,
+        "avg_speed_network": 10.739542397701305,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 15.731572454351266
+    },
+    {
+        "step": 74,
+        "total_vehicle_count": 39,
+        "avg_speed_network": 10.317162290074574,
+        "edge": "e1",
+        "edge_vehicle_count": 4,
+        "edge_density": 0.02126528442317916,
+        "edge_travel_time": 19.435392369790947
+    },
+    {
+        "step": 75,
+        "total_vehicle_count": 39,
+        "avg_speed_network": 10.16320526930694,
+        "edge": "e1",
+        "edge_vehicle_count": 4,
+        "edge_density": 0.02126528442317916,
+        "edge_travel_time": 19.705890770640483
+    },
+    {
+        "step": 76,
+        "total_vehicle_count": 39,
+        "avg_speed_network": 9.891523665294397,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 17.362810468339656
+    },
+    {
+        "step": 77,
+        "total_vehicle_count": 39,
+        "avg_speed_network": 9.95451696650499,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 16.065141246699927
+    },
+    {
+        "step": 78,
+        "total_vehicle_count": 39,
+        "avg_speed_network": 9.892737114634059,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 16.3103375372821
+    },
+    {
+        "step": 79,
+        "total_vehicle_count": 40,
+        "avg_speed_network": 9.467257550864359,
+        "edge": "e1",
+        "edge_vehicle_count": 4,
+        "edge_density": 0.02126528442317916,
+        "edge_travel_time": 22.74690270059097
+    },
+    {
+        "step": 80,
+        "total_vehicle_count": 41,
+        "avg_speed_network": 9.608883846470942,
+        "edge": "e1",
+        "edge_vehicle_count": 4,
+        "edge_density": 0.02126528442317916,
+        "edge_travel_time": 19.27272229884499
+    },
+    {
+        "step": 81,
+        "total_vehicle_count": 42,
+        "avg_speed_network": 9.79408867196722,
+        "edge": "e1",
+        "edge_vehicle_count": 4,
+        "edge_density": 0.02126528442317916,
+        "edge_travel_time": 17.75640243791191
+    },
+    {
+        "step": 82,
+        "total_vehicle_count": 41,
+        "avg_speed_network": 9.830177619297077,
+        "edge": "e1",
+        "edge_vehicle_count": 4,
+        "edge_density": 0.02126528442317916,
+        "edge_travel_time": 16.41453975176125
+    },
+    {
+        "step": 83,
+        "total_vehicle_count": 41,
+        "avg_speed_network": 9.69787059604721,
+        "edge": "e1",
+        "edge_vehicle_count": 4,
+        "edge_density": 0.02126528442317916,
+        "edge_travel_time": 16.281634133115382
+    },
+    {
+        "step": 84,
+        "total_vehicle_count": 42,
+        "avg_speed_network": 8.57362470100579,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 17.28010958259507
+    },
+    {
+        "step": 85,
+        "total_vehicle_count": 42,
+        "avg_speed_network": 8.450644285607398,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 14.651227144411468
+    },
+    {
+        "step": 86,
+        "total_vehicle_count": 44,
+        "avg_speed_network": 8.24833037166441,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 13.5705341051687
+    },
+    {
+        "step": 87,
+        "total_vehicle_count": 46,
+        "avg_speed_network": 7.863632530190621,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 13.638811454688843
+    },
+    {
+        "step": 88,
+        "total_vehicle_count": 48,
+        "avg_speed_network": 7.558079554868008,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 13.971434367294703
+    },
+    {
+        "step": 89,
+        "total_vehicle_count": 50,
+        "avg_speed_network": 7.529480018226253,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 13.635381857000393
+    },
+    {
+        "step": 90,
+        "total_vehicle_count": 50,
+        "avg_speed_network": 8.217267050637416,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 13.613943828370113
+    },
+    {
+        "step": 91,
+        "total_vehicle_count": 50,
+        "avg_speed_network": 8.748039682430505,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 13.619108590610184
+    },
+    {
+        "step": 92,
+        "total_vehicle_count": 50,
+        "avg_speed_network": 9.320486578738898,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.231275588535375
+    },
+    {
+        "step": 93,
+        "total_vehicle_count": 49,
+        "avg_speed_network": 9.414093140586159,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.416154276022501
+    },
+    {
+        "step": 94,
+        "total_vehicle_count": 50,
+        "avg_speed_network": 9.619082555457348,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.361542309624015
+    },
+    {
+        "step": 95,
+        "total_vehicle_count": 48,
+        "avg_speed_network": 9.790014386400715,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.707155291678824
+    },
+    {
+        "step": 96,
+        "total_vehicle_count": 48,
+        "avg_speed_network": 9.913082081239287,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 97,
+        "total_vehicle_count": 48,
+        "avg_speed_network": 10.248472704055212,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 98,
+        "total_vehicle_count": 50,
+        "avg_speed_network": 10.09641972688866,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 99,
+        "total_vehicle_count": 50,
+        "avg_speed_network": 10.331289232889853,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 100,
+        "total_vehicle_count": 50,
+        "avg_speed_network": 10.25595209509675,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 101,
+        "total_vehicle_count": 50,
+        "avg_speed_network": 10.204558799940289,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 102,
+        "total_vehicle_count": 49,
+        "avg_speed_network": 9.855541373991462,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 103,
+        "total_vehicle_count": 50,
+        "avg_speed_network": 9.595419804967248,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 104,
+        "total_vehicle_count": 50,
+        "avg_speed_network": 8.927443079621094,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 27.08423326133909
+    },
+    {
+        "step": 105,
+        "total_vehicle_count": 47,
+        "avg_speed_network": 8.570775083188325,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 24.46595135560894
+    },
+    {
+        "step": 106,
+        "total_vehicle_count": 45,
+        "avg_speed_network": 8.14819826977123,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 21.944802399503498
+    },
+    {
+        "step": 107,
+        "total_vehicle_count": 46,
+        "avg_speed_network": 7.933423255428248,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 30.21592580287304
+    },
+    {
+        "step": 108,
+        "total_vehicle_count": 48,
+        "avg_speed_network": 7.694686778942498,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 25.977390257309132
+    },
+    {
+        "step": 109,
+        "total_vehicle_count": 47,
+        "avg_speed_network": 7.951481896071667,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 23.038180206274102
+    },
+    {
+        "step": 110,
+        "total_vehicle_count": 46,
+        "avg_speed_network": 7.813006286028301,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 20.231426046888746
+    },
+    {
+        "step": 111,
+        "total_vehicle_count": 45,
+        "avg_speed_network": 7.7029187586088925,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 17.40328508279981
+    },
+    {
+        "step": 112,
+        "total_vehicle_count": 45,
+        "avg_speed_network": 7.563083551544553,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 15.88202717376777
+    },
+    {
+        "step": 113,
+        "total_vehicle_count": 46,
+        "avg_speed_network": 7.400162487396039,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 14.57143755904152
+    },
+    {
+        "step": 114,
+        "total_vehicle_count": 46,
+        "avg_speed_network": 7.702264291277901,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 14.208191080899905
+    },
+    {
+        "step": 115,
+        "total_vehicle_count": 48,
+        "avg_speed_network": 7.708142266965425,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 13.330675454552201
+    },
+    {
+        "step": 116,
+        "total_vehicle_count": 48,
+        "avg_speed_network": 7.647352153201403,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 13.676310904489398
+    },
+    {
+        "step": 117,
+        "total_vehicle_count": 49,
+        "avg_speed_network": 7.883989774030772,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 13.524879034902005
+    },
+    {
+        "step": 118,
+        "total_vehicle_count": 50,
+        "avg_speed_network": 7.876400626546772,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 13.629851237710724
+    },
+    {
+        "step": 119,
+        "total_vehicle_count": 49,
+        "avg_speed_network": 8.056940637979684,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 13.74698889991592
+    },
+    {
+        "step": 120,
+        "total_vehicle_count": 50,
+        "avg_speed_network": 8.290079717801273,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 18.46735272712413
+    },
+    {
+        "step": 121,
+        "total_vehicle_count": 49,
+        "avg_speed_network": 8.445750353326742,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 17.37449864253963
+    },
+    {
+        "step": 122,
+        "total_vehicle_count": 48,
+        "avg_speed_network": 8.468588689205275,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 17.113210619155968
+    },
+    {
+        "step": 123,
+        "total_vehicle_count": 48,
+        "avg_speed_network": 8.453084991177196,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 16.409354893064386
+    },
+    {
+        "step": 124,
+        "total_vehicle_count": 50,
+        "avg_speed_network": 8.278707018782352,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 17.209289643048383
+    },
+    {
+        "step": 125,
+        "total_vehicle_count": 50,
+        "avg_speed_network": 8.503449465940768,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 16.06455453887412
+    },
+    {
+        "step": 126,
+        "total_vehicle_count": 51,
+        "avg_speed_network": 8.477733743222828,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.57398610123
+    },
+    {
+        "step": 127,
+        "total_vehicle_count": 51,
+        "avg_speed_network": 8.501040730239602,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.739260113566852
+    },
+    {
+        "step": 128,
+        "total_vehicle_count": 52,
+        "avg_speed_network": 8.599868351866816,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.408959114653175
+    },
+    {
+        "step": 129,
+        "total_vehicle_count": 54,
+        "avg_speed_network": 8.311301102511036,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.898582958330385
+    },
+    {
+        "step": 130,
+        "total_vehicle_count": 52,
+        "avg_speed_network": 8.439148324556095,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.398325553467918
+    },
+    {
+        "step": 131,
+        "total_vehicle_count": 52,
+        "avg_speed_network": 8.163514018371535,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.38618494809874
+    },
+    {
+        "step": 132,
+        "total_vehicle_count": 53,
+        "avg_speed_network": 7.734747949656246,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.478513440826495
+    },
+    {
+        "step": 133,
+        "total_vehicle_count": 55,
+        "avg_speed_network": 7.213232742737009,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.47979474880441
+    },
+    {
+        "step": 134,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 6.948495015772886,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.456354110833157
+    },
+    {
+        "step": 135,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 7.074757316068991,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.998995969201355
+    },
+    {
+        "step": 136,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 7.43105467581836,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.547556001599009
+    },
+    {
+        "step": 137,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 7.953955593377338,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 21.744451415500816
+    },
+    {
+        "step": 138,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 8.586076700598914,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 23.68357642583484
+    },
+    {
+        "step": 139,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 9.008503560495786,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 20.628680976617378
+    },
+    {
+        "step": 140,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 9.570872894225108,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 18.327258466078465
+    },
+    {
+        "step": 141,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 9.694306630403114,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 17.175035775344394
+    },
+    {
+        "step": 142,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 9.373553036030996,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 15.534493226490863
+    },
+    {
+        "step": 143,
+        "total_vehicle_count": 55,
+        "avg_speed_network": 9.682095313250377,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.681747051314261
+    },
+    {
+        "step": 144,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 9.78738193719928,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 20.53158402240176
+    },
+    {
+        "step": 145,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 9.829504784146561,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 18.98411937858214
+    },
+    {
+        "step": 146,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 10.051930744358952,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 17.36022408374758
+    },
+    {
+        "step": 147,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 9.823960545891657,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 22.002675905005933
+    },
+    {
+        "step": 148,
+        "total_vehicle_count": 60,
+        "avg_speed_network": 9.31339853715774,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 20.08742657915067
+    },
+    {
+        "step": 149,
+        "total_vehicle_count": 60,
+        "avg_speed_network": 9.458128006588908,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 17.80713923664348
+    },
+    {
+        "step": 150,
+        "total_vehicle_count": 61,
+        "avg_speed_network": 9.218726095898695,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 16.23493857101125
+    },
+    {
+        "step": 151,
+        "total_vehicle_count": 61,
+        "avg_speed_network": 9.278540547062242,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 15.150825491491437
+    },
+    {
+        "step": 152,
+        "total_vehicle_count": 60,
+        "avg_speed_network": 8.736140094685718,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 14.255932808222438
+    },
+    {
+        "step": 153,
+        "total_vehicle_count": 59,
+        "avg_speed_network": 8.549336974018912,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 14.13547313794669
+    },
+    {
+        "step": 154,
+        "total_vehicle_count": 59,
+        "avg_speed_network": 8.144083269542923,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 13.343366318179829
+    },
+    {
+        "step": 155,
+        "total_vehicle_count": 59,
+        "avg_speed_network": 7.989706769496412,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 12.823805090905234
+    },
+    {
+        "step": 156,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 8.282877143613915,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 12.831325621912276
+    },
+    {
+        "step": 157,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 8.546176525508946,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 12.631339633177047
+    },
+    {
+        "step": 158,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 8.723948771667173,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 12.799825965783999
+    },
+    {
+        "step": 159,
+        "total_vehicle_count": 55,
+        "avg_speed_network": 8.885196893596397,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 12.869652510827795
+    },
+    {
+        "step": 160,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 8.671597505262882,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 13.581825422026187
+    },
+    {
+        "step": 161,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 8.760600262656386,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.080621975009427
+    },
+    {
+        "step": 162,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 8.705416496877138,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 15.129457036202357
+    },
+    {
+        "step": 163,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 8.622833451422371,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 164,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 8.62098183619799,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 165,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 8.25945661484794,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 166,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 8.26836070278842,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 27.08423326133909
+    },
+    {
+        "step": 167,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 8.296593599164508,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 23.447715750369248
+    },
+    {
+        "step": 168,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 8.349969287978094,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 20.58658704902468
+    },
+    {
+        "step": 169,
+        "total_vehicle_count": 59,
+        "avg_speed_network": 8.028753978870956,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 18.066890613540014
+    },
+    {
+        "step": 170,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 7.806494605922464,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 16.802800509784955
+    },
+    {
+        "step": 171,
+        "total_vehicle_count": 55,
+        "avg_speed_network": 7.653308902913717,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 15.493553694947133
+    },
+    {
+        "step": 172,
+        "total_vehicle_count": 55,
+        "avg_speed_network": 7.401153786203599,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.40141774033848
+    },
+    {
+        "step": 173,
+        "total_vehicle_count": 52,
+        "avg_speed_network": 7.110530965282401,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.64613381116932
+    },
+    {
+        "step": 174,
+        "total_vehicle_count": 53,
+        "avg_speed_network": 6.697359749259785,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.626421179458784
+    },
+    {
+        "step": 175,
+        "total_vehicle_count": 53,
+        "avg_speed_network": 6.46030654017091,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.774260966345194
+    },
+    {
+        "step": 176,
+        "total_vehicle_count": 53,
+        "avg_speed_network": 6.48365107933016,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.835043310120225
+    },
+    {
+        "step": 177,
+        "total_vehicle_count": 55,
+        "avg_speed_network": 6.0268237374859215,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 20.442277377984425
+    },
+    {
+        "step": 178,
+        "total_vehicle_count": 55,
+        "avg_speed_network": 5.819124476704137,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 18.88362235889331
+    },
+    {
+        "step": 179,
+        "total_vehicle_count": 55,
+        "avg_speed_network": 6.0952328467722605,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 17.943990760900938
+    },
+    {
+        "step": 180,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 6.041848874113184,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 16.252156467878216
+    },
+    {
+        "step": 181,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 6.202783338639486,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 15.563722540854274
+    },
+    {
+        "step": 182,
+        "total_vehicle_count": 55,
+        "avg_speed_network": 6.596713171533618,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 14.981965297978757
+    },
+    {
+        "step": 183,
+        "total_vehicle_count": 55,
+        "avg_speed_network": 7.065220078513379,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.816953833609807
+    },
+    {
+        "step": 184,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 7.764478696303654,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.470948552461248
+    },
+    {
+        "step": 185,
+        "total_vehicle_count": 55,
+        "avg_speed_network": 8.499114795218858,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.030710210033517
+    },
+    {
+        "step": 186,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 8.597335197192736,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 12.927398891122325
+    },
+    {
+        "step": 187,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 9.07994218475717,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 12.52009127509388
+    },
+    {
+        "step": 188,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 9.455263422422599,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 12.710326584163402
+    },
+    {
+        "step": 189,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 9.448261866522865,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.031959497374503
+    },
+    {
+        "step": 190,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 9.76309038253383,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 12.947642072880148
+    },
+    {
+        "step": 191,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 10.294170472317646,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 12.92790539409134
+    },
+    {
+        "step": 192,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 10.494368671001864,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 22.633573539760736
+    },
+    {
+        "step": 193,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 10.96254290606093,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 24.223167936770178
+    },
+    {
+        "step": 194,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 11.113139351645485,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 21.10532958672978
+    },
+    {
+        "step": 195,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 10.89173992776128,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 27.954934015557377
+    },
+    {
+        "step": 196,
+        "total_vehicle_count": 60,
+        "avg_speed_network": 10.470778436078716,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 23.909413423233538
+    },
+    {
+        "step": 197,
+        "total_vehicle_count": 59,
+        "avg_speed_network": 10.507105353693891,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 21.092914936469032
+    },
+    {
+        "step": 198,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 10.758280189874558,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 18.516727607036035
+    },
+    {
+        "step": 199,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 10.773845175046956,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 16.391985362507878
+    },
+    {
+        "step": 200,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 10.42168586059345,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 15.623714796161591
+    },
+    {
+        "step": 201,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 9.877947201834255,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 15.26350809653887
+    },
+    {
+        "step": 202,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 9.813758155842297,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 14.234337211428848
+    },
+    {
+        "step": 203,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 9.764825422221312,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 13.92008880091166
+    },
+    {
+        "step": 204,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 9.398746522211798,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 13.286540955654678
+    },
+    {
+        "step": 205,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 9.032017640339058,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 12.911064582284304
+    },
+    {
+        "step": 206,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 8.655238845375996,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 17.965085304015826
+    },
+    {
+        "step": 207,
+        "total_vehicle_count": 59,
+        "avg_speed_network": 8.592941671511985,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 16.625386967344443
+    },
+    {
+        "step": 208,
+        "total_vehicle_count": 60,
+        "avg_speed_network": 8.505930915313376,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 17.363102215051175
+    },
+    {
+        "step": 209,
+        "total_vehicle_count": 62,
+        "avg_speed_network": 8.705500802782907,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 22.390007511036426
+    },
+    {
+        "step": 210,
+        "total_vehicle_count": 63,
+        "avg_speed_network": 9.010835615165808,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 19.07900509261967
+    },
+    {
+        "step": 211,
+        "total_vehicle_count": 64,
+        "avg_speed_network": 9.103226844604645,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 17.47172414531606
+    },
+    {
+        "step": 212,
+        "total_vehicle_count": 63,
+        "avg_speed_network": 8.794691563574467,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 18.04809300767401
+    },
+    {
+        "step": 213,
+        "total_vehicle_count": 63,
+        "avg_speed_network": 9.006544959710823,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 16.929167298512077
+    },
+    {
+        "step": 214,
+        "total_vehicle_count": 63,
+        "avg_speed_network": 8.794607305119943,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 15.758835172620948
+    },
+    {
+        "step": 215,
+        "total_vehicle_count": 62,
+        "avg_speed_network": 8.851975368983524,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 14.926290414327926
+    },
+    {
+        "step": 216,
+        "total_vehicle_count": 62,
+        "avg_speed_network": 9.002712925990652,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 14.468804972415677
+    },
+    {
+        "step": 217,
+        "total_vehicle_count": 60,
+        "avg_speed_network": 8.836611079181917,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 14.383259913642606
+    },
+    {
+        "step": 218,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 8.558777793198681,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 14.107189049907532
+    },
+    {
+        "step": 219,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 8.178242269043878,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 14.147956399263315
+    },
+    {
+        "step": 220,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 7.729632987851868,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 14.612304253804306
+    },
+    {
+        "step": 221,
+        "total_vehicle_count": 55,
+        "avg_speed_network": 7.310784651264435,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 14.940933741558077
+    },
+    {
+        "step": 222,
+        "total_vehicle_count": 54,
+        "avg_speed_network": 6.995240034506689,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 14.58406394332826
+    },
+    {
+        "step": 223,
+        "total_vehicle_count": 53,
+        "avg_speed_network": 6.796824286891868,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 14.31839015974118
+    },
+    {
+        "step": 224,
+        "total_vehicle_count": 52,
+        "avg_speed_network": 6.414502796021817,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 15.462626465709286
+    },
+    {
+        "step": 225,
+        "total_vehicle_count": 53,
+        "avg_speed_network": 6.17166608308198,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 15.463332166940617
+    },
+    {
+        "step": 226,
+        "total_vehicle_count": 53,
+        "avg_speed_network": 6.401214604932672,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 18.972670813952114
+    },
+    {
+        "step": 227,
+        "total_vehicle_count": 53,
+        "avg_speed_network": 6.84655585953489,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 18.67747923459831
+    },
+    {
+        "step": 228,
+        "total_vehicle_count": 52,
+        "avg_speed_network": 7.38928533661473,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 229,
+        "total_vehicle_count": 52,
+        "avg_speed_network": 7.920999701477542,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 230,
+        "total_vehicle_count": 51,
+        "avg_speed_network": 8.03865536120666,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 231,
+        "total_vehicle_count": 52,
+        "avg_speed_network": 8.276322583167483,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 232,
+        "total_vehicle_count": 52,
+        "avg_speed_network": 8.377185170843685,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 233,
+        "total_vehicle_count": 51,
+        "avg_speed_network": 8.589596573474116,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 234,
+        "total_vehicle_count": 54,
+        "avg_speed_network": 8.51203729328185,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 27.08423326133909
+    },
+    {
+        "step": 235,
+        "total_vehicle_count": 55,
+        "avg_speed_network": 8.625909338363057,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 24.63000022368679
+    },
+    {
+        "step": 236,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 8.819490250761584,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 22.01327419085263
+    },
+    {
+        "step": 237,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 8.757309686744295,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 30.66469244099132
+    },
+    {
+        "step": 238,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 8.493458498353528,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 26.31753141888438
+    },
+    {
+        "step": 239,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 8.708128304532154,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 22.747584997077805
+    },
+    {
+        "step": 240,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 9.132213641722599,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 19.712276621186682
+    },
+    {
+        "step": 241,
+        "total_vehicle_count": 55,
+        "avg_speed_network": 9.43690750636908,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 17.34290096066024
+    },
+    {
+        "step": 242,
+        "total_vehicle_count": 55,
+        "avg_speed_network": 9.282948557597917,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 15.26044325083657
+    },
+    {
+        "step": 243,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 8.755132257852292,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 14.080975780203822
+    },
+    {
+        "step": 244,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 8.583412959112978,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 13.675357090663097
+    },
+    {
+        "step": 245,
+        "total_vehicle_count": 59,
+        "avg_speed_network": 8.36437918990577,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 13.396924555776119
+    },
+    {
+        "step": 246,
+        "total_vehicle_count": 61,
+        "avg_speed_network": 8.05007892934895,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 14.152419713257347
+    },
+    {
+        "step": 247,
+        "total_vehicle_count": 61,
+        "avg_speed_network": 8.115879935086362,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 13.879262212021402
+    },
+    {
+        "step": 248,
+        "total_vehicle_count": 61,
+        "avg_speed_network": 7.965796494083659,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 13.862047755673213
+    },
+    {
+        "step": 249,
+        "total_vehicle_count": 61,
+        "avg_speed_network": 8.167422366998352,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 13.73833043578337
+    },
+    {
+        "step": 250,
+        "total_vehicle_count": 62,
+        "avg_speed_network": 8.359695451405408,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 14.073863222434566
+    },
+    {
+        "step": 251,
+        "total_vehicle_count": 62,
+        "avg_speed_network": 8.648811462191299,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 15.238838289100725
+    },
+    {
+        "step": 252,
+        "total_vehicle_count": 62,
+        "avg_speed_network": 8.758174369824554,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.836494904467642
+    },
+    {
+        "step": 253,
+        "total_vehicle_count": 62,
+        "avg_speed_network": 8.820917109157646,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.021023677904696
+    },
+    {
+        "step": 254,
+        "total_vehicle_count": 61,
+        "avg_speed_network": 8.539819271906126,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 15.638679936890734
+    },
+    {
+        "step": 255,
+        "total_vehicle_count": 61,
+        "avg_speed_network": 8.532245890764722,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 19.08639628559287
+    },
+    {
+        "step": 256,
+        "total_vehicle_count": 60,
+        "avg_speed_network": 8.067793784147609,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 257,
+        "total_vehicle_count": 60,
+        "avg_speed_network": 8.062737533175477,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 258,
+        "total_vehicle_count": 61,
+        "avg_speed_network": 7.682482777393337,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 259,
+        "total_vehicle_count": 63,
+        "avg_speed_network": 7.497549475172649,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 260,
+        "total_vehicle_count": 63,
+        "avg_speed_network": 7.495975885261366,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 261,
+        "total_vehicle_count": 60,
+        "avg_speed_network": 7.329393746497187,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 262,
+        "total_vehicle_count": 62,
+        "avg_speed_network": 6.911740576793567,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 263,
+        "total_vehicle_count": 61,
+        "avg_speed_network": 6.9782619470277405,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 264,
+        "total_vehicle_count": 61,
+        "avg_speed_network": 6.9492522344124055,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 265,
+        "total_vehicle_count": 60,
+        "avg_speed_network": 6.542858723822464,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 27.08423326133909
+    },
+    {
+        "step": 266,
+        "total_vehicle_count": 59,
+        "avg_speed_network": 6.489666059507181,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 23.289532161251028
+    },
+    {
+        "step": 267,
+        "total_vehicle_count": 59,
+        "avg_speed_network": 6.457150841389926,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 20.228458948743096
+    },
+    {
+        "step": 268,
+        "total_vehicle_count": 61,
+        "avg_speed_network": 6.294815480357383,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 18.81753228690066
+    },
+    {
+        "step": 269,
+        "total_vehicle_count": 61,
+        "avg_speed_network": 6.202418488958516,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 17.598387388209304
+    },
+    {
+        "step": 270,
+        "total_vehicle_count": 60,
+        "avg_speed_network": 6.212609882458769,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 15.799806847543909
+    },
+    {
+        "step": 271,
+        "total_vehicle_count": 60,
+        "avg_speed_network": 6.1418993602223395,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.687376276717366
+    },
+    {
+        "step": 272,
+        "total_vehicle_count": 61,
+        "avg_speed_network": 6.484953853289674,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.6341535234395
+    },
+    {
+        "step": 273,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 6.539815912624561,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.565297474514766
+    },
+    {
+        "step": 274,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 7.465236590763433,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.712382137597675
+    },
+    {
+        "step": 275,
+        "total_vehicle_count": 55,
+        "avg_speed_network": 8.067521697381288,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.055675532550483
+    },
+    {
+        "step": 276,
+        "total_vehicle_count": 53,
+        "avg_speed_network": 8.773797618822096,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.592487708933746
+    },
+    {
+        "step": 277,
+        "total_vehicle_count": 53,
+        "avg_speed_network": 9.531665014650613,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.090248897164509
+    },
+    {
+        "step": 278,
+        "total_vehicle_count": 51,
+        "avg_speed_network": 10.27454703055348,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.705287054382804
+    },
+    {
+        "step": 279,
+        "total_vehicle_count": 50,
+        "avg_speed_network": 10.847331661401924,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.644539492006661
+    },
+    {
+        "step": 280,
+        "total_vehicle_count": 50,
+        "avg_speed_network": 11.226709958493979,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.6807177457582
+    },
+    {
+        "step": 281,
+        "total_vehicle_count": 50,
+        "avg_speed_network": 11.598812400805587,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.155301305332685
+    },
+    {
+        "step": 282,
+        "total_vehicle_count": 52,
+        "avg_speed_network": 11.471269932751143,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 27.08423326133909
+    },
+    {
+        "step": 283,
+        "total_vehicle_count": 53,
+        "avg_speed_network": 11.260203433396285,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 24.62589897172411
+    },
+    {
+        "step": 284,
+        "total_vehicle_count": 54,
+        "avg_speed_network": 11.333133030585575,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 21.656537899042508
+    },
+    {
+        "step": 285,
+        "total_vehicle_count": 53,
+        "avg_speed_network": 11.320563870243609,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 19.7561300322371
+    },
+    {
+        "step": 286,
+        "total_vehicle_count": 52,
+        "avg_speed_network": 11.286112228060084,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 17.738301945034443
+    },
+    {
+        "step": 287,
+        "total_vehicle_count": 52,
+        "avg_speed_network": 11.082625579456154,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 16.641093473300135
+    },
+    {
+        "step": 288,
+        "total_vehicle_count": 51,
+        "avg_speed_network": 10.678879871033837,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 15.628090204384016
+    },
+    {
+        "step": 289,
+        "total_vehicle_count": 48,
+        "avg_speed_network": 10.39791424159156,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.579285894665595
+    },
+    {
+        "step": 290,
+        "total_vehicle_count": 50,
+        "avg_speed_network": 9.727293792434505,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 20.255689181654535
+    },
+    {
+        "step": 291,
+        "total_vehicle_count": 51,
+        "avg_speed_network": 9.326714986385786,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 19.22970967150603
+    },
+    {
+        "step": 292,
+        "total_vehicle_count": 48,
+        "avg_speed_network": 8.456870820880004,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 17.75458030053228
+    },
+    {
+        "step": 293,
+        "total_vehicle_count": 47,
+        "avg_speed_network": 7.723674323933699,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 21.492852595737755
+    },
+    {
+        "step": 294,
+        "total_vehicle_count": 47,
+        "avg_speed_network": 7.461772897876964,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 20.002318552974454
+    },
+    {
+        "step": 295,
+        "total_vehicle_count": 47,
+        "avg_speed_network": 7.519535212137106,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 17.60458713401245
+    },
+    {
+        "step": 296,
+        "total_vehicle_count": 47,
+        "avg_speed_network": 7.00539919838376,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 16.200823913943236
+    },
+    {
+        "step": 297,
+        "total_vehicle_count": 49,
+        "avg_speed_network": 6.925710220588694,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 15.382222968742266
+    },
+    {
+        "step": 298,
+        "total_vehicle_count": 50,
+        "avg_speed_network": 6.7041717233723395,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 14.88591039878282
+    },
+    {
+        "step": 299,
+        "total_vehicle_count": 50,
+        "avg_speed_network": 6.99128302052074,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 14.786884190137314
+    },
+    {
+        "step": 300,
+        "total_vehicle_count": 50,
+        "avg_speed_network": 7.147314831527286,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 14.00855715254859
+    },
+    {
+        "step": 301,
+        "total_vehicle_count": 50,
+        "avg_speed_network": 7.162914920855175,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 13.299082313845375
+    },
+    {
+        "step": 302,
+        "total_vehicle_count": 52,
+        "avg_speed_network": 7.005751024372218,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 13.198206574579848
+    },
+    {
+        "step": 303,
+        "total_vehicle_count": 51,
+        "avg_speed_network": 7.031181479306314,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 13.275026332077962
+    },
+    {
+        "step": 304,
+        "total_vehicle_count": 52,
+        "avg_speed_network": 6.860497043225371,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 12.94407844816253
+    },
+    {
+        "step": 305,
+        "total_vehicle_count": 53,
+        "avg_speed_network": 6.815607324880599,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 13.236341822383775
+    },
+    {
+        "step": 306,
+        "total_vehicle_count": 55,
+        "avg_speed_network": 6.56906500617387,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.043693327651043
+    },
+    {
+        "step": 307,
+        "total_vehicle_count": 52,
+        "avg_speed_network": 6.499202579968861,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 12.726308803724695
+    },
+    {
+        "step": 308,
+        "total_vehicle_count": 52,
+        "avg_speed_network": 6.529362080542806,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 12.9771337758189
+    },
+    {
+        "step": 309,
+        "total_vehicle_count": 52,
+        "avg_speed_network": 6.825572059278288,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 310,
+        "total_vehicle_count": 52,
+        "avg_speed_network": 6.753423336003594,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 311,
+        "total_vehicle_count": 51,
+        "avg_speed_network": 6.537428325998707,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 312,
+        "total_vehicle_count": 53,
+        "avg_speed_network": 6.274204384214859,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 27.08423326133909
+    },
+    {
+        "step": 313,
+        "total_vehicle_count": 53,
+        "avg_speed_network": 6.422060002209233,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 24.009512912998876
+    },
+    {
+        "step": 314,
+        "total_vehicle_count": 53,
+        "avg_speed_network": 6.464663543737572,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 21.867760493148655
+    },
+    {
+        "step": 315,
+        "total_vehicle_count": 52,
+        "avg_speed_network": 6.593003884381314,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 19.086743304683548
+    },
+    {
+        "step": 316,
+        "total_vehicle_count": 52,
+        "avg_speed_network": 6.910496316227117,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 17.812302190555364
+    },
+    {
+        "step": 317,
+        "total_vehicle_count": 54,
+        "avg_speed_network": 7.160989631566264,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 16.603486275153223
+    },
+    {
+        "step": 318,
+        "total_vehicle_count": 54,
+        "avg_speed_network": 7.8296784299671325,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 15.45350998220674
+    },
+    {
+        "step": 319,
+        "total_vehicle_count": 54,
+        "avg_speed_network": 8.158602208671184,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.974513899207656
+    },
+    {
+        "step": 320,
+        "total_vehicle_count": 54,
+        "avg_speed_network": 8.913488186561384,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.100186001383197
+    },
+    {
+        "step": 321,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 9.178506409007303,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.15704952679758
+    },
+    {
+        "step": 322,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 9.52641092724281,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 19.689331028295257
+    },
+    {
+        "step": 323,
+        "total_vehicle_count": 55,
+        "avg_speed_network": 9.752305588628701,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 18.60255430814204
+    },
+    {
+        "step": 324,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 9.90680420430959,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 17.342836273441684
+    },
+    {
+        "step": 325,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 10.165754149738978,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 16.269517910459705
+    },
+    {
+        "step": 326,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 10.193243418971305,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 15.770047749290065
+    },
+    {
+        "step": 327,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 10.122116769441178,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 15.100369062100683
+    },
+    {
+        "step": 328,
+        "total_vehicle_count": 59,
+        "avg_speed_network": 10.21939595804767,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 16.6496747894532
+    },
+    {
+        "step": 329,
+        "total_vehicle_count": 59,
+        "avg_speed_network": 10.340547100913145,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 15.988642737358997
+    },
+    {
+        "step": 330,
+        "total_vehicle_count": 59,
+        "avg_speed_network": 10.575754637186806,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 16.304922063288327
+    },
+    {
+        "step": 331,
+        "total_vehicle_count": 60,
+        "avg_speed_network": 10.52647562175722,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 16.202206250527663
+    },
+    {
+        "step": 332,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 10.753585103781315,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 16.433077622368728
+    },
+    {
+        "step": 333,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 10.821601555472357,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 16.663435597630446
+    },
+    {
+        "step": 334,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 10.326756750355344,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 15.87715538720423
+    },
+    {
+        "step": 335,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 9.996350897567764,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 15.869202259341758
+    },
+    {
+        "step": 336,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 9.960053541686035,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 15.962556986999221
+    },
+    {
+        "step": 337,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 10.06201925717953,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 15.964954493494329
+    },
+    {
+        "step": 338,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 9.846036324108608,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 16.495987908859302
+    },
+    {
+        "step": 339,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 9.406504980119328,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 16.532609585492956
+    },
+    {
+        "step": 340,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 9.215904934302705,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 16.759577297201314
+    },
+    {
+        "step": 341,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 9.082917555344338,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 16.525016021104655
+    },
+    {
+        "step": 342,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 8.877802919396228,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 16.26880651947511
+    },
+    {
+        "step": 343,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 8.587026305218382,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 16.401432080316532
+    },
+    {
+        "step": 344,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 8.60439270279392,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 16.45434481883437
+    },
+    {
+        "step": 345,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 8.703170386985326,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 346,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 8.688854280818992,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 347,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 8.610111927343148,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 348,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 8.488305261264056,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 27.08423326133909
+    },
+    {
+        "step": 349,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 8.795574303809364,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 24.166428346408747
+    },
+    {
+        "step": 350,
+        "total_vehicle_count": 60,
+        "avg_speed_network": 8.911935137456402,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 21.066763247418216
+    },
+    {
+        "step": 351,
+        "total_vehicle_count": 60,
+        "avg_speed_network": 8.905571389620613,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 18.556186492081476
+    },
+    {
+        "step": 352,
+        "total_vehicle_count": 62,
+        "avg_speed_network": 8.838612630948818,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 17.00663487035711
+    },
+    {
+        "step": 353,
+        "total_vehicle_count": 62,
+        "avg_speed_network": 8.775594761205049,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 15.22780710438311
+    },
+    {
+        "step": 354,
+        "total_vehicle_count": 62,
+        "avg_speed_network": 8.7601472571308,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.847009429184627
+    },
+    {
+        "step": 355,
+        "total_vehicle_count": 62,
+        "avg_speed_network": 8.921074254144962,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.656255994306504
+    },
+    {
+        "step": 356,
+        "total_vehicle_count": 61,
+        "avg_speed_network": 9.092241545005656,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.895905338989268
+    },
+    {
+        "step": 357,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 8.948999602820244,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.621259782719868
+    },
+    {
+        "step": 358,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 8.958346671393999,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.431816129601152
+    },
+    {
+        "step": 359,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 8.66941332433522,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.658697738773224
+    },
+    {
+        "step": 360,
+        "total_vehicle_count": 59,
+        "avg_speed_network": 8.900049442564482,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.771905390035197
+    },
+    {
+        "step": 361,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 8.821241747201922,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.52360637614733
+    },
+    {
+        "step": 362,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 9.168773689376446,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.487407409433375
+    },
+    {
+        "step": 363,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 9.39064698759931,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.86966294025783
+    },
+    {
+        "step": 364,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 9.949338641268367,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.861470780239646
+    },
+    {
+        "step": 365,
+        "total_vehicle_count": 59,
+        "avg_speed_network": 10.36631057090951,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.401288039474053
+    },
+    {
+        "step": 366,
+        "total_vehicle_count": 59,
+        "avg_speed_network": 10.632894645890453,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 15.34975994193445
+    },
+    {
+        "step": 367,
+        "total_vehicle_count": 59,
+        "avg_speed_network": 11.09300064432898,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 368,
+        "total_vehicle_count": 59,
+        "avg_speed_network": 10.934503613071918,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 27.08423326133909
+    },
+    {
+        "step": 369,
+        "total_vehicle_count": 60,
+        "avg_speed_network": 10.636987013342965,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 23.20320883611164
+    },
+    {
+        "step": 370,
+        "total_vehicle_count": 59,
+        "avg_speed_network": 10.862122284610995,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 21.011137247863914
+    },
+    {
+        "step": 371,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 11.221825060343589,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 18.59678988268014
+    },
+    {
+        "step": 372,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 11.65602543902344,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 16.947489801212328
+    },
+    {
+        "step": 373,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 11.569505077978503,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 15.994153463163377
+    },
+    {
+        "step": 374,
+        "total_vehicle_count": 60,
+        "avg_speed_network": 11.340370349988177,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 14.573954340703407
+    },
+    {
+        "step": 375,
+        "total_vehicle_count": 60,
+        "avg_speed_network": 11.491402557267078,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.567289104212657
+    },
+    {
+        "step": 376,
+        "total_vehicle_count": 59,
+        "avg_speed_network": 11.05445977414232,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.566236370828397
+    },
+    {
+        "step": 377,
+        "total_vehicle_count": 59,
+        "avg_speed_network": 10.679049592950115,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.697179079968008
+    },
+    {
+        "step": 378,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 10.163969517913305,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.333305822341014
+    },
+    {
+        "step": 379,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 9.647792270749163,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.569687779724456
+    },
+    {
+        "step": 380,
+        "total_vehicle_count": 54,
+        "avg_speed_network": 9.429912642065656,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.579197167151175
+    },
+    {
+        "step": 381,
+        "total_vehicle_count": 54,
+        "avg_speed_network": 9.49244820043771,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.656223512317093
+    },
+    {
+        "step": 382,
+        "total_vehicle_count": 52,
+        "avg_speed_network": 9.263752111102622,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.768261067888703
+    },
+    {
+        "step": 383,
+        "total_vehicle_count": 51,
+        "avg_speed_network": 9.525300616801923,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.275486928414628
+    },
+    {
+        "step": 384,
+        "total_vehicle_count": 53,
+        "avg_speed_network": 9.281407765782138,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 13.487113358313342
+    },
+    {
+        "step": 385,
+        "total_vehicle_count": 53,
+        "avg_speed_network": 9.0468065730089,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 386,
+        "total_vehicle_count": 53,
+        "avg_speed_network": 8.82269039033211,
+        "edge": "e1",
+        "edge_vehicle_count": 0,
+        "edge_density": 0.0,
+        "edge_travel_time": 13.542116630669545
+    },
+    {
+        "step": 387,
+        "total_vehicle_count": 54,
+        "avg_speed_network": 8.561789643369496,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 27.08423326133909
+    },
+    {
+        "step": 388,
+        "total_vehicle_count": 54,
+        "avg_speed_network": 8.74112644369028,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 23.432736182544335
+    },
+    {
+        "step": 389,
+        "total_vehicle_count": 56,
+        "avg_speed_network": 8.486115367654692,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 20.42336719626595
+    },
+    {
+        "step": 390,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 8.355600376188704,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 18.425178998541938
+    },
+    {
+        "step": 391,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 8.422043134961672,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 16.945343780407807
+    },
+    {
+        "step": 392,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 8.443604535405884,
+        "edge": "e1",
+        "edge_vehicle_count": 1,
+        "edge_density": 0.00531632110579479,
+        "edge_travel_time": 15.777452803658035
+    },
+    {
+        "step": 393,
+        "total_vehicle_count": 58,
+        "avg_speed_network": 8.462183385611114,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 22.36532109984377
+    },
+    {
+        "step": 394,
+        "total_vehicle_count": 61,
+        "avg_speed_network": 8.392629266007457,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 20.626850714705142
+    },
+    {
+        "step": 395,
+        "total_vehicle_count": 62,
+        "avg_speed_network": 8.531391294237087,
+        "edge": "e1",
+        "edge_vehicle_count": 2,
+        "edge_density": 0.01063264221158958,
+        "edge_travel_time": 19.280455652816947
+    },
+    {
+        "step": 396,
+        "total_vehicle_count": 61,
+        "avg_speed_network": 8.689162307112202,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 23.669407777322114
+    },
+    {
+        "step": 397,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 8.952592147438862,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 21.31166871616986
+    },
+    {
+        "step": 398,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 9.249934149237433,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 19.761825341967164
+    },
+    {
+        "step": 399,
+        "total_vehicle_count": 57,
+        "avg_speed_network": 9.1293736019832,
+        "edge": "e1",
+        "edge_vehicle_count": 3,
+        "edge_density": 0.01594896331738437,
+        "edge_travel_time": 17.776851104815258
+    }
+]

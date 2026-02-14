@@ -1,0 +1,6 @@
+pydantic
+langgraph
+typing
+openai
+state
+python-dotenv
