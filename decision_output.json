@@ -1,0 +1,14 @@
+{
+    "source": "A",
+    "destination": "D",
+    "checked_edge": "B_C",
+    "vehicles": 3,
+    "density": 0.03,
+    "congestion_level": "HIGH",
+    "selected_route": [
+        "A_E",
+        "E_F",
+        "F_D"
+    ],
+    "timestamp": 1771334777
+}
