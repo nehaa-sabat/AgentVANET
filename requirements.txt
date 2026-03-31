@@ -6,3 +6,6 @@ state
 python-dotenv
 fastapi 
 uvicorn
+python-multipart
+
+

@@ -2,8 +2,6 @@ import json
 from pydantic import BaseModel
 from typing import List
 
-# 1. Define the strict data contract for the NEW JSON format
-# Notice how these exactly match your new keys, including the list for the route
 class NewTrafficData(BaseModel):
     source: str
     destination: str
@@ -14,30 +12,63 @@ class NewTrafficData(BaseModel):
     selected_route: List[str]
     timestamp: int
 
-# 2. Create a function to read and validate the new JSON
-def validate_traffic_data(file_path: str) -> NewTrafficData:
-    with open(file_path, 'r') as file:
-        data_dict = json.load(file)
-        
-    # Validate the dictionary using our new Pydantic class
-    validated_data = NewTrafficData(**data_dict)
-    
-    return validated_data
-
-# --- Testing the Validation ---
-if __name__ == "__main__":
-    # Replace with the actual name of your new JSON file if it is different
-    file_name = "decision_output.json" 
-    
-    print(f"--- Testing {file_name} ---")
+def extract_and_validate():
+    print("Starting dataset validation...")
     try:
-        current_data = validate_traffic_data(file_name)
+        with open("dataset.json", "r") as file:
+            raw_data = json.load(file)
+            
+        latest_step = raw_data["steps"][-1]
         
-        print("✅ Validation Successful! The data is clean.")
-        print(f"Routing from {current_data.source} to {current_data.destination}")
-        print(f"Checking Edge: {current_data.checked_edge}")
-        print(f"Congestion Level: {current_data.congestion_level}")
-        print(f"Proposed Route Array: {current_data.selected_route}")
+        # vehicles is a list — grab the FIRST vehicle
+        target_vehicle = latest_step["vehicles"][0]
+        
+        full_route   = target_vehicle["route"]  # e.g. ["A_E", "E_F", "F_D"]
+        current_road = target_vehicle["road"]   # e.g. "F_D"
+        
+        # full_route is a list of strings, split the first and last edges
+        source_node = full_route[0].split("_")[0]   # "A_E" -> "A"
+        dest_node   = full_route[-1].split("_")[1]  # "F_D" -> "D"
+        
+        edge_info = next((e for e in latest_step["edges"] if e["id"] == current_road), None)
+        
+        density        = edge_info["occupancy"]  if edge_info else 0.0
+        mean_speed     = edge_info["mean_speed"] if edge_info else 20.0
+        total_vehicles = len(latest_step["vehicles"])
+        
+        if mean_speed < 5.0:
+            congestion = "HIGH"
+        elif mean_speed < 12.0:
+            congestion = "MEDIUM"
+        else:
+            congestion = "LOW"
+            
+        mapped_data = {
+            "source":          source_node,
+            "destination":     dest_node,
+            "checked_edge":    current_road,
+            "vehicles":        total_vehicles,
+            "density":         density,
+            "congestion_level": congestion,
+            "selected_route":  full_route,   # already a List[str]
+            "timestamp":       int(latest_step["time"]),
+        }  # <-- this closing brace was missing
+
+        validated_data = NewTrafficData(**mapped_data)
+        
+        print("\n✅ SUCCESS: Raw SUMO data extracted and validated perfectly!")
+        print("-" * 50)
+        print(f"Source Node:      {validated_data.source}")
+        print(f"Destination Node: {validated_data.destination}")
+        print(f"Vehicle on Edge:  {validated_data.checked_edge}")
+        print(f"Road Density:     {validated_data.density}")
+        print(f"AI Congestion:    {validated_data.congestion_level} (Speed: {mean_speed} m/s)")
+        print(f"Proposed Route:   {validated_data.selected_route}")
+        print("-" * 50)
         
     except Exception as e:
-        print(f"❌ Validation Failed: {e}")
+        print(f"\n❌ ERROR: Something went wrong during extraction.")
+        import traceback; traceback.print_exc()
+
+if __name__ == "__main__":
+    extract_and_validate()
