@@ -1,1037 +1,582 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AgentVANET — Traffic Intelligence Dashboard</title>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-  <style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AgentVANET</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f9f9f8;
+    --surface: #ffffff;
+    --border: rgba(0,0,0,0.1);
+    --border-em: rgba(0,0,0,0.18);
+    --text: #1a1a18;
+    --text-2: #5c5c58;
+    --text-3: #9a9a94;
+    --font: 'Inter', system-ui, sans-serif;
+    --r: 8px;
+    --r-lg: 12px;
+    --col-low: #1d9e75;
+    --col-med: #b87010;
+    --col-high: #d93a3a;
+    --col-route: #2577cc;
+    --col-route2: #c04570;
+  }
+
+  @media (prefers-color-scheme: dark) {
     :root {
-      --bg:        #050a0f;
-      --panel:     #080f18;
-      --border:    #0d2035;
-      --accent:    #00d4ff;
-      --accent2:   #00ff9d;
-      --warn:      #ffb300;
-      --danger:    #ff3b5c;
-      --text:      #c8e0f0;
-      --muted:     #3a5a75;
-      --low:       #00ff9d;
-      --medium:    #ffb300;
-      --high:      #ff3b5c;
-      --glow:      0 0 18px rgba(0,212,255,0.25);
+      --bg: #161614;
+      --surface: #1f1f1d;
+      --border: rgba(255,255,255,0.1);
+      --border-em: rgba(255,255,255,0.18);
+      --text: #f0efe8;
+      --text-2: #a8a89e;
+      --text-3: #636360;
+      --col-low: #25c490;
+      --col-med: #e09930;
+      --col-high: #f05050;
+      --col-route: #4d9de0;
+      --col-route2: #e0608a;
     }
+  }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; background: var(--bg); color: var(--text); font-family: var(--font); font-size: 14px; line-height: 1.5; }
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 15px;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+  /* ── Layout ── */
+  .app { display: grid; grid-template-columns: 210px 1fr 270px; grid-template-rows: 48px 1fr; height: 100vh; gap: 1px; background: var(--border); }
+  .topbar { grid-column: 1 / -1; background: var(--surface); display: flex; align-items: center; padding: 0 18px; gap: 16px; border-bottom: 1px solid var(--border); }
+  .topbar-title { font-size: 14px; font-weight: 600; letter-spacing: -.01em; }
+  .topbar-sub { font-size: 12px; color: var(--text-3); }
+  .dot-status { width: 7px; height: 7px; border-radius: 50%; background: var(--col-low); margin-left: auto; }
+  .dot-status-lbl { font-size: 11px; color: var(--text-3); }
 
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(0,212,255,0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,212,255,0.02) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
-      z-index: 0;
-    }
+  .left { background: var(--surface); padding: 14px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+  .center { background: var(--bg); display: flex; align-items: center; justify-content: center; position: relative; }
+  .right { background: var(--surface); padding: 14px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
 
-    header {
-      position: relative;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px 32px;
-      border-bottom: 1px solid var(--border);
-      background: linear-gradient(90deg, rgba(0,212,255,0.05), transparent);
-    }
+  /* ── Form elements ── */
+  .field-label { font-size: 10px; color: var(--text-3); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 5px; }
+  select { width: 100%; height: 32px; font-family: var(--font); font-size: 13px; background: var(--bg); border: 1px solid var(--border-em); border-radius: var(--r); color: var(--text); padding: 0 8px; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23999' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; }
+  select:focus { outline: none; border-color: var(--col-route); }
 
-    .logo { display: flex; align-items: center; gap: 12px; }
+  .btn { width: 100%; height: 33px; font-family: var(--font); font-size: 13px; border-radius: var(--r); cursor: pointer; transition: opacity .15s, background .15s; font-weight: 500; }
+  .btn-primary { background: var(--text); color: var(--surface); border: none; }
+  .btn-primary:hover { opacity: .82; }
+  .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border-em); }
+  .btn-secondary:hover { background: var(--bg); }
+  .btn:disabled { opacity: .4; cursor: default; }
 
-    .logo-icon {
-      width: 36px; height: 36px;
-      background: var(--accent);
-      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px;
-      animation: pulse-hex 3s ease-in-out infinite;
-    }
+  .divider { height: 1px; background: var(--border); flex-shrink: 0; }
+  .section-head { font-size: 11px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: .07em; }
 
-    @keyframes pulse-hex {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(0,212,255,0.4); }
-      50%       { box-shadow: 0 0 0 10px rgba(0,212,255,0); }
-    }
+  /* ── Stat rows ── */
+  .stat-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; font-size: 12px; border-bottom: 1px solid var(--border); }
+  .stat-row:last-child { border-bottom: none; }
+  .stat-row span:first-child { color: var(--text-2); }
+  .stat-val { font-weight: 500; }
 
-    .logo h1 {
-      font-size: 22px; font-weight: 700;
-      letter-spacing: 3px; text-transform: uppercase; color: var(--accent);
-    }
+  /* ── Edge list ── */
+  .edge-item { display: flex; align-items: center; gap: 8px; padding: 3px 0; font-size: 11px; color: var(--text-2); }
+  .edge-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; background: var(--border-em); }
+  .edge-lvl { margin-left: auto; font-size: 10px; font-weight: 600; }
 
-    .logo span {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 11px; color: var(--muted); letter-spacing: 2px;
-    }
+  /* ── Map ── */
+  #map-svg { width: 100%; max-width: 640px; display: block; }
+  #map-mode-lbl { position: absolute; top: 12px; left: 14px; font-size: 11px; color: var(--text-3); background: var(--surface); padding: 3px 8px; border-radius: 99px; border: 1px solid var(--border); }
 
-    .status-bar {
-      display: flex; align-items: center; gap: 8px;
-      font-family: 'Share Tech Mono', monospace; font-size: 12px; color: var(--muted);
-    }
+  /* ── Right panel cards ── */
+  .agent-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 10px 12px; }
+  .agent-card-title { font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 7px; margin-bottom: 5px; }
+  .agent-card-body { font-size: 12px; color: var(--text-2); line-height: 1.6; }
 
-    .status-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--accent2); box-shadow: 0 0 6px var(--accent2);
-      animation: blink 1.5s infinite;
-    }
+  .badge { font-size: 10px; padding: 2px 7px; border-radius: 99px; font-weight: 600; }
+  .badge-low { background: #d0f0e4; color: #0d6647; }
+  .badge-med { background: #fce9c4; color: #8a5500; }
+  .badge-high { background: #fad8d8; color: #8f2222; }
+  .badge-ok { background: #d8f0e0; color: #1a6b3c; }
+  .badge-blocked { background: #fad8d8; color: #8f2222; }
+  @media (prefers-color-scheme: dark) {
+    .badge-low { background: #0a3323; color: #3de0a0; }
+    .badge-med { background: #3a2400; color: #f0a820; }
+    .badge-high { background: #3a1010; color: #f07070; }
+    .badge-ok { background: #0a2e18; color: #40d47a; }
+    .badge-blocked { background: #3a1010; color: #f07070; }
+  }
 
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .route-tag { display: inline-block; font-size: 11px; padding: 1px 6px; border-radius: 4px; background: var(--surface); border: 1px solid var(--border-em); margin: 2px 2px 0 0; font-family: monospace; color: var(--text); }
 
-    .layout {
-      position: relative; z-index: 1;
-      display: grid;
-      grid-template-columns: 320px 1fr 320px;
-      gap: 0;
-      height: calc(100vh - 73px);
-    }
+  .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .metric-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 7px 8px; text-align: center; }
+  .metric-val { font-size: 16px; font-weight: 600; }
+  .metric-lbl { font-size: 10px; color: var(--text-3); margin-top: 1px; }
 
-    .panel {
-      background: var(--panel); border: 1px solid var(--border);
-      padding: 20px; overflow-y: auto;
-    }
+  .legend-row { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--text-2); }
+  .legend-line { width: 22px; height: 2px; border-radius: 1px; flex-shrink: 0; }
 
-    .panel-title {
-      font-size: 11px; font-family: 'Share Tech Mono', monospace;
-      letter-spacing: 3px; text-transform: uppercase; color: var(--accent);
-      margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; gap: 8px;
-    }
+  .empty-state { color: var(--text-3); font-size: 13px; text-align: center; padding: 48px 16px; }
 
-    .panel-title::before {
-      content: ''; display: block;
-      width: 3px; height: 14px; background: var(--accent); border-radius: 2px;
-    }
+  .compare-model-card { border-left: 2px solid; border-radius: var(--r-lg); padding: 10px 12px; background: var(--bg); border-top: 1px solid var(--border); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
-    .control-panel { grid-column: 1; border-right: 1px solid var(--border); }
+  code { font-family: monospace; font-size: 12px; }
 
-    .form-group { margin-bottom: 16px; }
-
-    label {
-      display: block; font-size: 11px; letter-spacing: 2px;
-      text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
-      font-family: 'Share Tech Mono', monospace;
-    }
-
-    select {
-      width: 100%; padding: 10px 14px; background: #0a1520;
-      border: 1px solid var(--border); border-radius: 4px;
-      color: var(--text); font-family: 'Rajdhani', sans-serif;
-      font-size: 16px; font-weight: 600; cursor: pointer; appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2300d4ff' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 12px center;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-
-    select:focus { outline: none; border-color: var(--accent); box-shadow: var(--glow); }
-
-    .run-btn {
-      width: 100%; padding: 14px; background: transparent;
-      border: 1px solid var(--accent); color: var(--accent);
-      font-family: 'Rajdhani', sans-serif; font-size: 14px; font-weight: 700;
-      letter-spacing: 3px; text-transform: uppercase; cursor: pointer;
-      border-radius: 4px; position: relative; overflow: hidden;
-      transition: all 0.3s; margin-top: 8px;
-    }
-
-    .run-btn::before {
-      content: ''; position: absolute; inset: 0;
-      background: var(--accent); transform: translateX(-100%);
-      transition: transform 0.3s; z-index: -1;
-    }
-
-    .run-btn:hover { color: var(--bg); box-shadow: var(--glow); }
-    .run-btn:hover::before { transform: translateX(0); }
-    .run-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-
-    .run-btn.loading::after {
-      content: ''; display: inline-block; width: 12px; height: 12px;
-      border: 2px solid currentColor; border-top-color: transparent;
-      border-radius: 50%; animation: spin 0.6s linear infinite;
-      margin-left: 10px; vertical-align: middle;
-    }
-
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
-
-    .stat-box {
-      background: #0a1520; border: 1px solid var(--border);
-      border-radius: 4px; padding: 12px; text-align: center;
-    }
-
-    .stat-box .val {
-      font-family: 'Share Tech Mono', monospace; font-size: 22px;
-      color: var(--accent); line-height: 1;
-    }
-
-    .stat-box .lbl {
-      font-size: 10px; letter-spacing: 1px; color: var(--muted);
-      text-transform: uppercase; margin-top: 4px;
-    }
-
-    .map-container {
-      grid-column: 2;
-      position: relative; display: flex; align-items: center; justify-content: center;
-      background: radial-gradient(ellipse at center, #05111d 0%, var(--bg) 70%);
-      border-left: 1px solid var(--border); border-right: 1px solid var(--border);
-    }
-
-    #network-svg { width: 100%; height: 100%; }
-
-    .map-overlay {
-      position: absolute; bottom: 16px; left: 16px;
-      background: rgba(8,15,24,0.9); border: 1px solid var(--border);
-      border-radius: 4px; padding: 10px 14px;
-      font-family: 'Share Tech Mono', monospace; font-size: 11px;
-    }
-
-    .legend-item { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
-    .legend-dot { width: 12px; height: 4px; border-radius: 2px; }
-
-    .results-panel { grid-column: 3; }
-
-    .agent-card {
-      background: #0a1520; border: 1px solid var(--border);
-      border-radius: 4px; margin-bottom: 12px; overflow: hidden;
-      opacity: 0; transform: translateX(20px);
-      transition: opacity 0.4s ease, transform 0.4s ease;
-    }
-
-    .agent-card.visible { opacity: 1; transform: translateX(0); }
-
-    .agent-header {
-      display: flex; align-items: center; gap: 10px;
-      padding: 10px 14px; border-bottom: 1px solid var(--border);
-    }
-
-    .agent-num {
-      width: 24px; height: 24px; border-radius: 50%;
-      border: 1px solid var(--accent);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Share Tech Mono', monospace; font-size: 11px;
-      color: var(--accent); flex-shrink: 0;
-    }
-
-    .agent-name { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
-
-    .agent-status {
-      margin-left: auto; font-size: 10px;
-      font-family: 'Share Tech Mono', monospace; padding: 2px 8px; border-radius: 2px;
-    }
-
-    .agent-status.ok   { background: rgba(0,255,157,0.1); color: var(--accent2); border: 1px solid rgba(0,255,157,0.3); }
-    .agent-status.warn { background: rgba(255,179,0,0.1);  color: var(--warn);    border: 1px solid rgba(255,179,0,0.3); }
-    .agent-status.err  { background: rgba(255,59,92,0.1);  color: var(--danger);  border: 1px solid rgba(255,59,92,0.3); }
-
-    .agent-body { padding: 12px 14px; }
-    .agent-body p { font-size: 13px; line-height: 1.5; color: var(--text); }
-    .agent-body .mono { font-family: 'Share Tech Mono', monospace; font-size: 12px; color: var(--accent); }
-
-    .route-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-
-    .pill {
-      padding: 3px 10px; border-radius: 2px;
-      font-family: 'Share Tech Mono', monospace; font-size: 11px;
-      background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.25); color: var(--accent);
-    }
-
-    .pill.active {
-      background: rgba(0,212,255,0.2); border-color: var(--accent);
-      box-shadow: 0 0 8px rgba(0,212,255,0.3);
-    }
-
-    .driver-msg {
-      background: rgba(0,255,157,0.05); border: 1px solid rgba(0,255,157,0.2);
-      border-radius: 4px; padding: 14px; margin-top: 12px;
-      font-size: 14px; line-height: 1.6; color: var(--accent2); font-weight: 600;
-    }
-
-    .driver-msg-label {
-      font-family: 'Share Tech Mono', monospace; font-size: 10px;
-      letter-spacing: 2px; color: var(--muted); text-transform: uppercase; margin-bottom: 6px;
-    }
-
-    .placeholder {
-      text-align: center; padding: 40px 20px; color: var(--muted);
-      font-family: 'Share Tech Mono', monospace; font-size: 12px; line-height: 2;
-    }
-
-    .badge {
-      display: inline-block; padding: 2px 10px; border-radius: 2px;
-      font-size: 11px; font-family: 'Share Tech Mono', monospace;
-      font-weight: 700; letter-spacing: 1px;
-    }
-
-    .badge.LOW    { background: rgba(0,255,157,0.1);  color: var(--low);    border: 1px solid var(--low); }
-    .badge.MEDIUM { background: rgba(255,179,0,0.1);  color: var(--medium); border: 1px solid var(--medium); }
-    .badge.HIGH   { background: rgba(255,59,92,0.1);  color: var(--high);   border: 1px solid var(--high); }
-
-    .toast {
-      position: fixed; bottom: 24px; left: 50%;
-      transform: translateX(-50%) translateY(80px);
-      background: rgba(255,59,92,0.15); border: 1px solid var(--danger);
-      color: var(--danger); padding: 12px 24px; border-radius: 4px;
-      font-family: 'Share Tech Mono', monospace; font-size: 13px;
-      z-index: 100; transition: transform 0.3s ease;
-    }
-
-    .toast.show { transform: translateX(-50%) translateY(0); }
-
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
-
-    /* ── Model Compare Styles ── */
-    .model-section { margin-bottom: 20px; }
-
-    .model-header {
-      display: flex; align-items: center; gap: 8px;
-      padding: 8px 12px; border-radius: 4px 4px 0 0;
-      border: 1px solid var(--border); border-bottom: none;
-      font-family: 'Share Tech Mono', monospace; font-size: 11px;
-      letter-spacing: 2px; text-transform: uppercase;
-    }
-
-    .model-header.llama { background: rgba(0,212,255,0.08); border-color: var(--accent);  color: var(--accent); }
-    .model-header.gemma { background: rgba(255,179,0,0.08); border-color: var(--warn);    color: var(--warn); }
-
-    .model-dot { width: 8px; height: 8px; border-radius: 50%; }
-    .model-dot.llama { background: var(--accent); }
-    .model-dot.gemma { background: var(--warn); }
-
-    .model-body {
-      border: 1px solid var(--border); border-radius: 0 0 4px 4px;
-      padding: 12px 14px; background: #0a1520;
-    }
-
-    .model-route {
-      font-family: 'Share Tech Mono', monospace; font-size: 13px;
-      margin: 6px 0; padding: 6px 10px; border-radius: 3px; border-left: 3px solid;
-    }
-
-    .model-route.llama { border-color: var(--accent);  background: rgba(0,212,255,0.05); color: var(--accent); }
-    .model-route.gemma { border-color: var(--warn);    background: rgba(255,179,0,0.05); color: var(--warn); }
-
-    .agree-badge {
-      display: inline-block; padding: 2px 8px; border-radius: 2px;
-      font-size: 10px; font-family: 'Share Tech Mono', monospace;
-      background: rgba(0,255,157,0.1); color: var(--accent2);
-      border: 1px solid var(--accent2); margin-top: 8px;
-    }
-
-    .disagree-badge {
-      display: inline-block; padding: 2px 8px; border-radius: 2px;
-      font-size: 10px; font-family: 'Share Tech Mono', monospace;
-      background: rgba(255,179,0,0.1); color: var(--warn);
-      border: 1px solid var(--warn); margin-top: 8px;
-    }
-  </style>
+  @media (max-width: 780px) {
+    .app { grid-template-columns: 1fr; grid-template-rows: 48px auto auto auto; height: auto; }
+    .center { min-height: 280px; }
+  }
+</style>
 </head>
 <body>
+<div class="app">
 
-<header>
-  <div class="logo">
-    <div class="logo-icon">⬡</div>
+  <!-- Topbar -->
+  <header class="topbar">
+    <span class="topbar-title">AgentVANET</span>
+    <span class="topbar-sub">Multi-agent traffic routing · SUMO simulation</span>
+    <div class="dot-status" id="health-dot"></div>
+    <span class="dot-status-lbl" id="health-lbl">checking…</span>
+  </header>
+
+  <!-- Left panel -->
+  <aside class="left">
     <div>
-      <h1>AgentVANET</h1>
-      <span>TRAFFIC INTELLIGENCE SYSTEM</span>
+      <div class="field-label">Source</div>
+      <select id="src"></select>
     </div>
-  </div>
-  <div class="status-bar">
-    <div class="status-dot"></div>
-    <span id="sys-status">SYSTEM ONLINE — AWAITING INPUT</span>
-  </div>
-</header>
+    <div>
+      <div class="field-label">Destination</div>
+      <select id="dst"></select>
+    </div>
+    <button class="btn btn-primary" id="btn-run" onclick="runSim()">Run simulation</button>
+    <button class="btn btn-secondary" id="btn-compare" onclick="runCompare()">Compare 2 models</button>
 
-<div class="layout">
-
-  <!-- Left: Controls -->
-  <div class="panel control-panel">
-    <div class="panel-title">Simulation Control</div>
-
-    <div class="form-group">
-      <label>Source Node</label>
-      <select id="source-select"><option value="">Loading...</option></select>
+    <div class="divider"></div>
+    <div class="section-head">Network</div>
+    <div id="net-stats">
+      <div class="stat-row"><span>Nodes</span><span class="stat-val">6</span></div>
+      <div class="stat-row"><span>Edges</span><span class="stat-val">7</span></div>
+      <div class="stat-row"><span>Vehicles</span><span class="stat-val" id="stat-vehicles">—</span></div>
+      <div class="stat-row"><span>Congestion</span><span class="stat-val" id="stat-congestion">—</span></div>
     </div>
 
-    <div class="form-group">
-      <label>Destination Node</label>
-      <select id="dest-select"><option value="">Loading...</option></select>
-    </div>
+    <div class="divider"></div>
+    <div class="section-head">Edge conditions</div>
+    <div id="edge-list"></div>
+  </aside>
 
-    <button class="run-btn" id="run-btn" onclick="runSimulation()">
-      ▶ &nbsp; Run Simulation
-    </button>
+  <!-- Center map -->
+  <main class="center">
+    <svg id="map-svg" viewBox="0 0 680 480" xmlns="http://www.w3.org/2000/svg">
+      <g id="g-edges"></g>
+      <g id="g-nodes"></g>
+    </svg>
+    <div id="map-mode-lbl">—</div>
+  </main>
 
-    <button class="run-btn" id="compare-btn" onclick="runCompare()"
-      style="margin-top:8px;border-color:var(--accent2);color:var(--accent2);">
-      ⚡ &nbsp; Compare 2 Models
-    </button>
-
-    <div style="margin-top:28px;">
-      <div class="panel-title">Network Status</div>
-      <div class="stat-grid">
-        <div class="stat-box"><div class="val" id="stat-vehicles">—</div><div class="lbl">Vehicles</div></div>
-        <div class="stat-box"><div class="val" id="stat-edges">—</div><div class="lbl">Edges</div></div>
-        <div class="stat-box"><div class="val" id="stat-congested">—</div><div class="lbl">Congested</div></div>
-        <div class="stat-box"><div class="val" id="stat-time">—</div><div class="lbl">Sim Time</div></div>
-      </div>
-    </div>
-
-    <div style="margin-top:8px;">
-      <div class="panel-title">Edge Conditions</div>
-      <div id="edge-list"></div>
-    </div>
-  </div>
-
-  <!-- Center: Map -->
-  <div class="map-container">
-    <svg id="network-svg" viewBox="0 0 680 500" xmlns="http://www.w3.org/2000/svg"></svg>
-    <div class="map-overlay">
-      <div class="legend-item"><div class="legend-dot" style="background:var(--low)"></div><span>Low Congestion</span></div>
-      <div class="legend-item"><div class="legend-dot" style="background:var(--medium)"></div><span>Medium Congestion</span></div>
-      <div class="legend-item"><div class="legend-dot" style="background:var(--high)"></div><span>High Congestion</span></div>
-      <div class="legend-item"><div class="legend-dot" style="background:var(--accent);border:1px dashed var(--accent)"></div><span>Selected Route</span></div>
-    </div>
-  </div>
-
-  <!-- Right: Results -->
-  <div class="panel results-panel">
-    <div class="panel-title" id="results-title">Agent Pipeline Output</div>
-    <div id="results-container">
-      <div class="placeholder">
-        ◈ &nbsp; SELECT SOURCE &amp; DESTINATION<br>
-        THEN CLICK RUN SIMULATION<br>
-        OR COMPARE 2 MODELS<br><br>
-        AGENTS WILL REPORT HERE
-      </div>
-    </div>
-  </div>
+  <!-- Right panel -->
+  <aside class="right" id="right-panel">
+    <div class="empty-state">Run a simulation<br>to see agent outputs</div>
+  </aside>
 
 </div>
 
-<div class="toast" id="toast"></div>
-
 <script>
-  const API = 'http://127.0.0.1:8000';
+/* ── Constants ── */
+const NODE_POS = { A:[80,260], B:[240,80], C:[500,80], D:[620,260], E:[270,400], F:[480,400] };
+const EDGES = [['A','B'],['A','E'],['B','C'],['C','D'],['E','C'],['E','F'],['F','D']];
+const EDGE_IDS = ['A_B','A_E','B_C','C_D','E_C','E_F','F_D'];
 
-  // ── Node positions — matched exactly to SUMO network topology
-  // B=top-left, C=top-right, A=far-left, D=far-right, E=bottom-center-left, F=bottom-center-right
-  const NODE_POS = {
-    A: { x: 60,  y: 260 },
-    B: { x: 220, y: 80  },
-    C: { x: 480, y: 80  },
-    D: { x: 610, y: 260 },
-    E: { x: 250, y: 400 },
-    F: { x: 460, y: 400 },
-  };
+function cssVar(name) {
+  return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+}
 
-  // Node radius — small enough so E_F short edge stays visible
-  const NODE_R        = 14;
-  const NODE_R_ACTIVE = 18;
+function edgeColor(lvl) {
+  if (lvl === 'LOW') return cssVar('--col-low');
+  if (lvl === 'MEDIUM') return cssVar('--col-med');
+  if (lvl === 'HIGH') return cssVar('--col-high');
+  return cssVar('--border-em');
+}
 
-  let networkData = null;
-
-  // Model config for compare mode (2 models only)
-  const MODEL_LABELS = { llama: 'LLaMA 3.3 70B', gemma: 'LLaMA 3.1 8B' };
-  const MODEL_COLORS = { llama: '#00d4ff',        gemma: '#ffb300'    };
-  const MODEL_DASHES = { llama: 'none',            gemma: '6,3'        };
-
-  // ── Helpers ────────────────────────────────────────────────
-
-  function normalizeRoute(route) {
-    if (Array.isArray(route)) return route;
-    if (typeof route === 'string' && route.length) return [route];
-    return [];
+/* ── Populate dropdowns ── */
+async function loadNodes() {
+  try {
+    const r = await fetch('/nodes');
+    const nodes = await r.json();
+    populateSelects(nodes);
+  } catch {
+    populateSelects(['A','B','C','D','E','F']);
   }
-
-  // Convert whatever the LLM returns into valid edge IDs from the network
-  function normalizeToEdgeIds(route, edges) {
-    const edgeIds = new Set(edges.map(e => e.id));
-    let items = normalizeRoute(route);
-
-    // Flatten arrow/space separated strings
-    items = items.flatMap(item =>
-      (item.includes('→') || item.includes('->') || item.includes(' '))
-        ? item.split(/→|->|\s+/).map(s => s.trim()).filter(Boolean)
-        : [item]
-    );
-
-    // Already valid edge IDs
-    if (items.length > 0 && items.every(i => edgeIds.has(i))) return items;
-
-    // Node name list e.g. ["A","E","F","D"] → convert to edge IDs
-    if (items.length >= 2 && items.every(i => i.length <= 3 && !i.includes('_'))) {
-      const derived = [];
-      for (let i = 0; i < items.length - 1; i++) {
-        const fwd = `${items[i]}_${items[i+1]}`;
-        const rev = `${items[i+1]}_${items[i]}`;
-        if (edgeIds.has(fwd))      derived.push(fwd);
-        else if (edgeIds.has(rev)) derived.push(rev);
-      }
-      if (derived.length > 0) return derived;
-    }
-
-    // Fallback: keep only valid edge IDs
-    return items.filter(i => edgeIds.has(i));
-  }
-
-  function edgesToPath(edges) {
-    if (!edges || !edges.length) return '—';
-    const nodes = [];
-    for (const edge of edges) {
-      const parts = edge.split('_');
-      if (parts.length === 2) {
-        if (!nodes.length) nodes.push(parts[0]);
-        nodes.push(parts[1]);
-      }
-    }
-    return nodes.join(' → ');
-  }
-
-  function congestionColor(c) {
-    return c === 'HIGH' ? 'var(--high)' : c === 'MEDIUM' ? 'var(--medium)' : 'var(--low)';
-  }
-
-  // ── Init ───────────────────────────────────────────────────
-
-  async function init() {
-    await loadNodes();
-    await loadNetwork();
-  }
-
-  async function loadNodes() {
-    try {
-      const res  = await fetch(`${API}/nodes`);
-      const data = await res.json();
-      ['source-select', 'dest-select'].forEach((id, idx) => {
-        const sel = document.getElementById(id);
-        sel.innerHTML = data.nodes.map(n =>
-          `<option value="${n}" ${(idx===0&&n==='A')||(idx===1&&n==='D') ? 'selected' : ''}>${n}</option>`
-        ).join('');
-      });
-    } catch (e) {
-      showToast('Cannot reach API at 127.0.0.1:8000 — is the server running?');
-    }
-  }
-
-  async function loadNetwork() {
-    try {
-      const res = await fetch(`${API}/network`);
-      networkData = await res.json();
-      renderMap(networkData, []);
-      updateStats(networkData);
-      renderEdgeList(networkData.edges);
-    } catch (e) {
-      console.error('Network load failed', e);
-    }
-  }
-
-  // ── Map Rendering ──────────────────────────────────────────
-
-  function renderMap(data, highlightRoute = []) {
-    const svg = document.getElementById('network-svg');
-
-    // Always include E_F when A_E and F_D are both in route
-    const hl = new Set(highlightRoute);
-    if (hl.has('A_E') && hl.has('F_D')) hl.add('E_F');
-
-    const src = document.getElementById('source-select')?.value;
-    const dst = document.getElementById('dest-select')?.value;
-
-    // Build full SVG as a string — avoids any DOM ordering issues
-    let svgContent = `<defs>
-      <filter id="glow">
-        <feGaussianBlur stdDeviation="3" result="blur"/>
-        <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-      </filter>
-    </defs>`;
-
-    // Helper to get color
-    function edgeColor(id, congestion) {
-      return hl.has(id) ? '#00d4ff' : (congestion === 'HIGH' ? '#ff3b5c' : congestion === 'MEDIUM' ? '#ffb300' : '#00ff9d');
-    }
-
-    // Collect edge IDs already drawn so we can add E_F if missing
-    const drawnEdgeIds = new Set();
-
-    // Draw all edges as SVG string
-    data.edges.forEach(edge => {
-      let from = NODE_POS[edge.source];
-      let to   = NODE_POS[edge.target];
-      // Fallback: derive nodes directly from edge ID
-      if (!from || !to) {
-        const parts = edge.id.split('_');
-        if (parts.length === 2) { from = NODE_POS[parts[0]]; to = NODE_POS[parts[1]]; }
-      }
-      if (!from || !to) return;
-      drawnEdgeIds.add(edge.id);
-
-      const inRoute = hl.has(edge.id);
-      const color   = edgeColor(edge.id, edge.congestion);
-      const width   = inRoute ? 5 : 2.5;
-      const glow    = inRoute ? 'filter="url(#glow)"' : '';
-      const mx = (from.x + to.x) / 2;
-      const my = (from.y + to.y) / 2;
-
-      svgContent += `
-        <line x1="${from.x}" y1="${from.y}" x2="${to.x}" y2="${to.y}"
-              stroke="rgba(0,212,255,0.08)" stroke-width="7"/>
-        <line x1="${from.x}" y1="${from.y}" x2="${to.x}" y2="${to.y}"
-              stroke="${color}" stroke-width="${width}" ${glow}/>
-        <rect x="${mx-22}" y="${my-10}" width="44" height="18" rx="3"
-              fill="rgba(5,10,15,0.9)" stroke="${color}" stroke-width="0.5"/>
-        <text x="${mx}" y="${my+4}" text-anchor="middle"
-              font-family="Share Tech Mono,monospace" font-size="10"
-              fill="${color}">${edge.id}</text>`;
-    });
-
-    // If E_F was not drawn (e.g. filtered out), draw it explicitly
-    if (!drawnEdgeIds.has('E_F') && NODE_POS['E'] && NODE_POS['F']) {
-      const from = NODE_POS['E'];
-      const to   = NODE_POS['F'];
-      const inRoute = hl.has('E_F');
-      const color = inRoute ? '#00d4ff' : '#00ff9d';
-      const width = inRoute ? 5 : 2.5;
-      const glow  = inRoute ? 'filter="url(#glow)"' : '';
-      const mx = (from.x + to.x) / 2;
-      const my = (from.y + to.y) / 2;
-      svgContent += `
-        <line x1="${from.x}" y1="${from.y}" x2="${to.x}" y2="${to.y}"
-              stroke="rgba(0,212,255,0.08)" stroke-width="7"/>
-        <line x1="${from.x}" y1="${from.y}" x2="${to.x}" y2="${to.y}"
-              stroke="${color}" stroke-width="${width}" ${glow}/>
-        <rect x="${mx-22}" y="${my-10}" width="44" height="18" rx="3"
-              fill="rgba(5,10,15,0.9)" stroke="${color}" stroke-width="0.5"/>
-        <text x="${mx}" y="${my+4}" text-anchor="middle"
-              font-family="Share Tech Mono,monospace" font-size="10"
-              fill="${color}">E_F</text>`;
-    }
-
-    // Draw nodes
-    Object.entries(NODE_POS).forEach(([name, pos]) => {
-      if (!data.nodes.includes(name)) return;
-      const isSrc = name === src;
-      const isDst = name === dst;
-      const r      = (isSrc || isDst) ? NODE_R_ACTIVE : NODE_R;
-      const fill   = isSrc ? 'rgba(0,255,157,0.15)' : isDst ? 'rgba(0,212,255,0.15)' : 'rgba(8,15,24,0.95)';
-      const stroke = isSrc ? '#00ff9d' : isDst ? '#00d4ff' : '#3a5a75';
-      const glow   = (isSrc || isDst) ? 'filter="url(#glow)"' : '';
-      const sw     = (isSrc || isDst) ? 2 : 1;
-
-      svgContent += `
-        <circle cx="${pos.x}" cy="${pos.y}" r="${r}"
-                fill="${fill}" stroke="${stroke}" stroke-width="${sw}" ${glow}/>
-        <text x="${pos.x}" y="${pos.y+5}" text-anchor="middle"
-              font-family="Rajdhani,sans-serif" font-size="15"
-              font-weight="700" fill="${stroke}">${name}</text>`;
-
-      if (isSrc || isDst) {
-        svgContent += `
-        <text x="${pos.x}" y="${pos.y+r+14}" text-anchor="middle"
-              font-family="Share Tech Mono,monospace" font-size="9"
-              fill="${stroke}" opacity="0.8">${isSrc ? 'SOURCE' : 'DEST'}</text>`;
-      }
-    });
-
-    svg.innerHTML = svgContent;
-  }
-
-  // Multi-model map: draw base then overlay each model's route with offset + dash
-  function renderMapMultiModel(data, models) {
-    renderMap(data, []);
-    const svg = document.getElementById('network-svg');
-
-    const offsets = { llama: -3, gemma: 3 };
-
-    Object.entries(models).forEach(([key, m]) => {
-      let routeEdges = Array.isArray(m.proposed_route) ? [...m.proposed_route] : [];
-
-      // Always include E_F when route goes through A_E and F_D
-      if (routeEdges.includes('A_E') && routeEdges.includes('F_D') && !routeEdges.includes('E_F')) {
-        routeEdges.splice(routeEdges.indexOf('A_E') + 1, 0, 'E_F');
-      }
-
-      const color  = MODEL_COLORS[key];
-      const offset = offsets[key] || 0;
-      const dash   = MODEL_DASHES[key] || 'none';
-
-      routeEdges.forEach(eid => {
-        // Get from/to from data.edges first, fall back to NODE_POS directly
-        let from, to;
-        const edge = data.edges.find(e => e.id === eid);
-        if (edge) {
-          from = NODE_POS[edge.source];
-          to   = NODE_POS[edge.target];
-        } else {
-          // Derive from/to from edge ID directly e.g. "E_F" → E and F
-          const parts = eid.split('_');
-          if (parts.length === 2) {
-            from = NODE_POS[parts[0]];
-            to   = NODE_POS[parts[1]];
-          }
-        }
-        if (!from || !to) return;
-
-        const dx  = to.x - from.x;
-        const dy  = to.y - from.y;
-        const len = Math.sqrt(dx*dx + dy*dy) || 1;
-        const ox  = (-dy / len) * offset;
-        const oy  = ( dx / len) * offset;
-
-        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-        line.setAttribute('x1', from.x + ox); line.setAttribute('y1', from.y + oy);
-        line.setAttribute('x2', to.x   + ox); line.setAttribute('y2', to.y   + oy);
-        line.setAttribute('stroke', color);
-        line.setAttribute('stroke-width', 3);
-        line.setAttribute('stroke-dasharray', dash);
-        line.setAttribute('filter', 'url(#glow)');
-        line.setAttribute('opacity', '0.9');
-        svg.appendChild(line);
-      });
-    });
-  }
-
-  // ── Stats & Edge List ──────────────────────────────────────
-
-  function updateStats(data) {
-    document.getElementById('stat-vehicles').textContent  = data.vehicles.length;
-    document.getElementById('stat-edges').textContent     = data.edges.length;
-    document.getElementById('stat-congested').textContent = data.edges.filter(e => e.congestion === 'HIGH').length;
-    document.getElementById('stat-time').textContent      = Math.round(data.time) + 's';
-  }
-
-  function renderEdgeList(edges) {
-    document.getElementById('edge-list').innerHTML = edges.map(e => `
-      <div style="display:flex;align-items:center;justify-content:space-between;
-                  padding:6px 0;border-bottom:1px solid var(--border)">
-        <span style="font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--text)">${e.id}</span>
-        <div style="display:flex;align-items:center;gap:8px">
-          <span style="font-size:11px;color:var(--muted)">${e.mean_speed.toFixed(1)} m/s</span>
-          <span class="badge ${e.congestion}">${e.congestion}</span>
-        </div>
-      </div>`).join('');
-  }
-
-  // ── Run Simulation (single model) ─────────────────────────
-
-  async function runSimulation() {
-    const src = document.getElementById('source-select').value;
-    const dst = document.getElementById('dest-select').value;
-    if (!src || !dst)  { showToast('Please select source and destination.'); return; }
-    if (src === dst)   { showToast('Source and destination must be different.'); return; }
-
-    const btn = document.getElementById('run-btn');
-    const cmp = document.getElementById('compare-btn');
-    btn.disabled = cmp.disabled = true;
-    btn.classList.add('loading');
-    btn.textContent = '  Running Agents...';
-    document.getElementById('sys-status').textContent = 'AGENTS PROCESSING — PLEASE WAIT';
-    if (networkData) renderMap(networkData, []);
-
-    try {
-      const res = await fetch(`${API}/analyze?source=${src}&destination=${dst}`);
-      if (!res.ok) { const e = await res.json(); throw new Error(e.detail || 'API error'); }
-      const data = await res.json();
-
-      let routeEdges = Array.isArray(data.proposed_route) ? [...data.proposed_route] : [];
-
-      // Always add E_F if route goes through A_E and F_D
-      if (routeEdges.includes('A_E') && routeEdges.includes('F_D') && !routeEdges.includes('E_F')) {
-        routeEdges.splice(routeEdges.indexOf('A_E') + 1, 0, 'E_F');
-      }
-
-      if (networkData) renderMap(networkData, routeEdges);
-
-      renderResults(data);
-      document.getElementById('results-title').textContent = 'Agent Pipeline Output';
-      document.getElementById('sys-status').textContent =
-        `SIMULATION COMPLETE — ${src} → ${dst} — ${data.congestion_level} CONGESTION`;
-
-    } catch (e) {
-      showToast(`Error: ${e.message}`);
-      document.getElementById('sys-status').textContent = 'ERROR — CHECK CONSOLE';
-    } finally {
-      btn.disabled = cmp.disabled = false;
-      btn.classList.remove('loading');
-      btn.textContent = '▶   Run Simulation';
-    }
-  }
-
-  function renderResults(d) {
-    const container = document.getElementById('results-container');
-
-    const proposedRoute  = normalizeRoute(d.proposed_route);
-    const alternateRoute = normalizeRoute(d.alternate_route || []);
-    const proposedPath   = edgesToPath(proposedRoute);
-    const alternatePath  = edgesToPath(alternateRoute);
-
-    const choseAlternate = JSON.stringify(proposedRoute) !== JSON.stringify(d.selected_route)
-                        && alternateRoute.length > 0;
-
-    const safeStatus = d.is_safe
-      ? '<span class="agent-status ok">SAFE</span>'
-      : '<span class="agent-status err">BLOCKED</span>';
-
-    const proposedPills = proposedRoute.map(seg =>
-      `<span class="pill active">${seg}</span>`).join('');
-
-    const alternatePills = alternateRoute.length
-      ? alternateRoute.map(seg => `<span class="pill">${seg}</span>`).join('')
-      : '<span style="color:var(--muted);font-size:11px;font-family:monospace">none</span>';
-
-    container.innerHTML = `
-      <div class="agent-card" id="card-1">
-        <div class="agent-header">
-          <div class="agent-num">01</div>
-          <div class="agent-name">Traffic Agent</div>
-          <span class="agent-status ok">COMPLETE</span>
-        </div>
-        <div class="agent-body">
-          <p>Worst edge: <span class="mono">${d.checked_edge}</span> &nbsp;·&nbsp;
-             <span class="badge ${d.congestion_level}">${d.congestion_level}</span></p>
-          <p style="margin-top:6px">Status: <span class="mono">${d.traffic_status}</span></p>
-          <p style="margin-top:6px">Density: <span class="mono">${d.density.toFixed(4)}</span>
-             &nbsp;·&nbsp; Vehicles: <span class="mono">${d.vehicles}</span></p>
-        </div>
-      </div>
-
-      <div class="agent-card" id="card-2">
-        <div class="agent-header">
-          <div class="agent-num">02</div>
-          <div class="agent-name">Routing Agent</div>
-          <span class="agent-status ${choseAlternate ? 'warn' : 'ok'}">${choseAlternate ? 'DETOUR' : 'BEST PATH'}</span>
-        </div>
-        <div class="agent-body">
-          <p style="margin-bottom:6px"><span class="mono">${d.source} → ${d.destination}</span></p>
-          <p style="font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Chosen Route</p>
-          <div class="route-pills">${proposedPills}</div>
-          <p style="margin-top:4px;font-size:12px;color:var(--accent)">${proposedPath}</p>
-          <p style="font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin:10px 0 4px">Alternate Route</p>
-          <div class="route-pills">${alternatePills}</div>
-          <p style="margin-top:4px;font-size:12px;color:var(--muted)">${alternatePath}</p>
-          <p style="margin-top:10px;font-size:12px;color:var(--muted)">${d.explanation}</p>
-        </div>
-      </div>
-
-      <div class="agent-card" id="card-3">
-        <div class="agent-header">
-          <div class="agent-num">03</div>
-          <div class="agent-name">Safety Agent</div>
-          ${safeStatus}
-        </div>
-        <div class="agent-body">
-          ${d.is_safe
-            ? `<p>Route cleared. Density <span class="mono">${d.density.toFixed(4)}</span> is within safe limits.</p>`
-            : `<p style="color:var(--danger)">${d.rejection_reason}</p>`}
-        </div>
-      </div>
-
-      <div class="agent-card" id="card-4">
-        <div class="agent-header">
-          <div class="agent-num">04</div>
-          <div class="agent-name">Communication Agent</div>
-          <span class="agent-status ok">COMPLETE</span>
-        </div>
-        <div class="agent-body">
-          <div class="driver-msg-label">Driver Message</div>
-          <div class="driver-msg">${d.final_communication || '— No message generated —'}</div>
-        </div>
-      </div>
-
-      <div class="agent-card" id="card-5">
-        <div class="agent-header">
-          <div class="agent-num">◈</div>
-          <div class="agent-name">Performance Metrics</div>
-          <span class="agent-status ok">LLaMA 3.3 70B</span>
-        </div>
-        <div class="agent-body">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
-            <div style="background:rgba(0,212,255,0.05);border:1px solid var(--border);border-radius:3px;padding:8px;text-align:center;">
-              <div style="font-family:'Share Tech Mono',monospace;font-size:20px;color:var(--accent)">${(d.total_time_s||0).toFixed(2)}s</div>
-              <div style="font-size:10px;color:var(--muted);letter-spacing:1px;margin-top:2px">COMPUTATION TIME</div>
-            </div>
-            <div style="background:rgba(0,212,255,0.05);border:1px solid var(--border);border-radius:3px;padding:8px;text-align:center;">
-              <div style="font-family:'Share Tech Mono',monospace;font-size:20px;color:var(--accent)">${(d.estimated_delay_min||0).toFixed(1)} min</div>
-              <div style="font-size:10px;color:var(--muted);letter-spacing:1px;margin-top:2px">EST. ROUTE DELAY</div>
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px;">
-            <div style="background:rgba(0,0,0,0.2);border:1px solid var(--border);border-radius:3px;padding:6px;text-align:center;">
-              <div style="font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--muted)">${(d.routing_time_s||0).toFixed(2)}s</div>
-              <div style="font-size:9px;color:var(--muted);letter-spacing:1px;margin-top:2px">ROUTING AGENT</div>
-            </div>
-            <div style="background:rgba(0,0,0,0.2);border:1px solid var(--border);border-radius:3px;padding:6px;text-align:center;">
-              <div style="font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--muted)">${(d.comm_time_s||0).toFixed(2)}s</div>
-              <div style="font-size:9px;color:var(--muted);letter-spacing:1px;margin-top:2px">COMM AGENT</div>
-            </div>
-          </div>
-        </div>
-      </div>`;
-
-    [1,2,3,4,5].forEach((n, i) => setTimeout(() => {
-      document.getElementById(`card-${n}`)?.classList.add('visible');
-    }, i * 180));
-  }
-
-  // ── Compare 2 Models ───────────────────────────────────────
-
-  async function runCompare() {
-    const src = document.getElementById('source-select').value;
-    const dst = document.getElementById('dest-select').value;
-    if (!src || !dst) { showToast('Please select source and destination.'); return; }
-    if (src === dst)  { showToast('Source and destination must be different.'); return; }
-
-    const btn = document.getElementById('compare-btn');
-    const run = document.getElementById('run-btn');
-    btn.disabled = run.disabled = true;
-    btn.classList.add('loading');
-    btn.textContent = '  Querying 2 Models...';
-    document.getElementById('sys-status').textContent = 'COMPARING MODELS — PLEASE WAIT';
-    if (networkData) renderMap(networkData, []);
-
-    try {
-      const res = await fetch(`${API}/compare?source=${src}&destination=${dst}`);
-      if (!res.ok) { const e = await res.json(); throw new Error(e.detail || 'API error'); }
-      const data = await res.json();
-
-      if (networkData) renderMapMultiModel(networkData, data.models);
-      renderCompare(data);
-      document.getElementById('results-title').textContent = 'Model Comparison';
-      document.getElementById('sys-status').textContent =
-        `COMPARISON COMPLETE — ${src} → ${dst} — ${data.congestion_level} CONGESTION`;
-
-    } catch (e) {
-      showToast(`Error: ${e.message}`);
-      document.getElementById('sys-status').textContent = 'ERROR — CHECK CONSOLE';
-    } finally {
-      btn.disabled = run.disabled = false;
-      btn.classList.remove('loading');
-      btn.textContent = '⚡   Compare 2 Models';
-    }
-  }
-
-  function renderCompare(d) {
-    const container = document.getElementById('results-container');
-    const models    = d.models;
-
-    const routes   = Object.values(models).map(m => JSON.stringify([...m.proposed_route].sort()));
-    const allAgree = routes.every(r => r === routes[0]);
-
-    const consensusHtml = allAgree
-      ? `<div class="agree-badge">✓ BOTH MODELS AGREE ON SAME ROUTE</div>`
-      : `<div class="disagree-badge">⚡ MODELS DISAGREE — SEE ROUTES BELOW</div>`;
-
-    const first = Object.values(models)[0];
-
-    const summaryHtml = `
-      <div class="agent-card visible" style="margin-bottom:12px">
-        <div class="agent-header">
-          <div class="agent-num">01</div>
-          <div class="agent-name">Traffic + Safety (Shared)</div>
-          <span class="agent-status ${first.is_safe ? 'ok' : 'err'}">${first.is_safe ? 'SAFE' : 'BLOCKED'}</span>
-        </div>
-        <div class="agent-body">
-          <p>Worst edge: <span class="mono">${d.checked_edge}</span> &nbsp;·&nbsp;
-             <span class="badge ${d.congestion_level}">${d.congestion_level}</span></p>
-          <p style="margin-top:6px">Density: <span class="mono">${d.density.toFixed(4)}</span>
-             &nbsp;·&nbsp; Vehicles: <span class="mono">${d.vehicles}</span></p>
-          ${!first.is_safe ? `<p style="color:var(--danger);margin-top:6px">${first.rejection_reason}</p>` : ''}
-          ${consensusHtml}
-        </div>
-      </div>`;
-
-    const modelCards = Object.entries(models).map(([key, m]) => {
-      const routeStr  = edgesToPath(m.proposed_route);
-      const colorVar  = key === 'llama' ? 'var(--accent)' : 'var(--warn)';
-      const lineDesc  = key === 'llama' ? 'solid cyan line' : 'dashed yellow line';
-
-      const routingTime  = (m.routing_time_s  || 0).toFixed(2);
-      const commTime     = (m.comm_time_s     || 0).toFixed(2);
-      const totalTime    = (m.total_time_s    || 0).toFixed(2);
-      const estDelay     = (m.estimated_delay_min || 0).toFixed(1);
-
-      return `
-        <div class="model-section">
-          <div class="model-header ${key}">
-            <div class="model-dot ${key}"></div>
-            ${MODEL_LABELS[key]}
-            <span style="margin-left:auto;font-size:9px;opacity:0.7">${lineDesc} on map</span>
-          </div>
-          <div class="model-body">
-            <div class="model-route ${key}">${routeStr || '—'}</div>
-            <p style="font-size:12px;color:var(--muted);margin-top:8px">${m.explanation}</p>
-
-            <!-- Timing & Delay Stats -->
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px;">
-              <div style="background:rgba(0,0,0,0.25);border:1px solid var(--border);border-radius:3px;padding:8px;text-align:center;">
-                <div style="font-family:'Share Tech Mono',monospace;font-size:18px;color:${colorVar}">${totalTime}s</div>
-                <div style="font-size:10px;color:var(--muted);letter-spacing:1px;margin-top:2px">COMPUTATION TIME</div>
-              </div>
-              <div style="background:rgba(0,0,0,0.25);border:1px solid var(--border);border-radius:3px;padding:8px;text-align:center;">
-                <div style="font-family:'Share Tech Mono',monospace;font-size:18px;color:${colorVar}">${estDelay} min</div>
-                <div style="font-size:10px;color:var(--muted);letter-spacing:1px;margin-top:2px">EST. ROUTE DELAY</div>
-              </div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px;">
-              <div style="background:rgba(0,0,0,0.15);border:1px solid var(--border);border-radius:3px;padding:6px;text-align:center;">
-                <div style="font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--muted)">${routingTime}s</div>
-                <div style="font-size:9px;color:var(--muted);letter-spacing:1px;margin-top:2px">ROUTING AGENT</div>
-              </div>
-              <div style="background:rgba(0,0,0,0.15);border:1px solid var(--border);border-radius:3px;padding:6px;text-align:center;">
-                <div style="font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--muted)">${commTime}s</div>
-                <div style="font-size:9px;color:var(--muted);letter-spacing:1px;margin-top:2px">COMM AGENT</div>
-              </div>
-            </div>
-
-            <div style="margin-top:10px;padding:10px;background:rgba(0,0,0,0.2);
-                        border-radius:3px;font-size:13px;color:${colorVar};font-weight:600">
-              "${m.final_communication}"
-            </div>
-          </div>
-        </div>`;
-    }).join('');
-
-    container.innerHTML = summaryHtml + modelCards;
-  }
-
-  // ── Toast ──────────────────────────────────────────────────
-
-  function showToast(msg) {
-    const t = document.getElementById('toast');
-    t.textContent = msg;
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 4000);
-  }
-
-  // ── Boot ───────────────────────────────────────────────────
-
-  document.addEventListener('DOMContentLoaded', () => {
-    ['source-select', 'dest-select'].forEach(id => {
-      document.getElementById(id)?.addEventListener('change', () => {
-        if (networkData) renderMap(networkData, []);
-      });
-    });
-    init();
+}
+
+function populateSelects(nodes) {
+  ['src','dst'].forEach((id, i) => {
+    const sel = document.getElementById(id);
+    sel.innerHTML = nodes.map(n => `<option${(i===0&&n==='A')||(i===1&&n==='D')?' selected':''}>${n}</option>`).join('');
   });
+}
+
+/* ── Health check ── */
+async function checkHealth() {
+  try {
+    const r = await fetch('/health');
+    const ok = r.ok;
+    document.getElementById('health-dot').style.background = ok ? cssVar('--col-low') : cssVar('--col-high');
+    document.getElementById('health-lbl').textContent = ok ? 'online' : 'offline';
+  } catch {
+    document.getElementById('health-dot').style.background = cssVar('--col-high');
+    document.getElementById('health-lbl').textContent = 'offline';
+  }
+}
+
+/* ── SVG map rendering ── */
+function renderMap(hlRoute, hlRoute2, edgeLevels) {
+  const ge = document.getElementById('g-edges');
+  const gn = document.getElementById('g-nodes');
+  ge.innerHTML = ''; gn.innerHTML = '';
+
+  const textColor = cssVar('--text');
+  const textMuted = cssVar('--text-3');
+  const surfaceColor = cssVar('--surface');
+  const borderColor = cssVar('--border-em');
+  const routeColor = cssVar('--col-route');
+  const route2Color = cssVar('--col-route2');
+
+  /* E_F fix: always add if A_E and F_D are in route */
+  const hl = new Set(hlRoute || []);
+  if (hl.has('A_E') && hl.has('F_D')) hl.add('E_F');
+  const hl2 = new Set(hlRoute2 || []);
+  if (hl2.has('A_E') && hl2.has('F_D')) hl2.add('E_F');
+
+  const ns = 'http://www.w3.org/2000/svg';
+
+  EDGES.forEach(([a, b]) => {
+    const id = a + '_' + b;
+    const [x1, y1] = NODE_POS[a];
+    const [x2, y2] = NODE_POS[b];
+    const isHl = hl.has(id);
+    const isHl2 = hl2.has(id);
+    const lvl = edgeLevels ? edgeLevels[id] : '';
+
+    /* Base edge */
+    const base = document.createElementNS(ns, 'line');
+    base.setAttribute('x1', x1); base.setAttribute('y1', y1);
+    base.setAttribute('x2', x2); base.setAttribute('y2', y2);
+    base.setAttribute('stroke', isHl || isHl2 ? 'transparent' : edgeColor(lvl));
+    base.setAttribute('stroke-width', '1.5');
+    base.setAttribute('opacity', '0.55');
+    ge.appendChild(base);
+
+    /* Route 1 (solid, offset -3) */
+    if (isHl) {
+      const dx = -(y2-y1) / Math.hypot(x2-x1, y2-y1) * 3;
+      const dy = (x2-x1) / Math.hypot(x2-x1, y2-y1) * 3;
+      const l = document.createElementNS(ns, 'line');
+      l.setAttribute('x1', x1+dx); l.setAttribute('y1', y1+dy);
+      l.setAttribute('x2', x2+dx); l.setAttribute('y2', y2+dy);
+      l.setAttribute('stroke', routeColor);
+      l.setAttribute('stroke-width', '2.5');
+      l.setAttribute('opacity', '0.9');
+      ge.appendChild(l);
+    }
+
+    /* Route 2 (dashed, offset +3) */
+    if (isHl2) {
+      const dx = (y2-y1) / Math.hypot(x2-x1, y2-y1) * 3;
+      const dy = -(x2-x1) / Math.hypot(x2-x1, y2-y1) * 3;
+      const l = document.createElementNS(ns, 'line');
+      l.setAttribute('x1', x1+dx); l.setAttribute('y1', y1+dy);
+      l.setAttribute('x2', x2+dx); l.setAttribute('y2', y2+dy);
+      l.setAttribute('stroke', route2Color);
+      l.setAttribute('stroke-width', '2.5');
+      l.setAttribute('stroke-dasharray', '7 4');
+      l.setAttribute('opacity', '0.85');
+      ge.appendChild(l);
+    }
+
+    /* Edge label */
+    const mx = (x1+x2)/2, my = (y1+y2)/2;
+    const t = document.createElementNS(ns, 'text');
+    t.setAttribute('x', mx); t.setAttribute('y', my - 7);
+    t.setAttribute('text-anchor', 'middle');
+    t.setAttribute('font-size', '10');
+    t.setAttribute('font-family', 'monospace');
+    t.setAttribute('fill', textMuted);
+    t.textContent = id;
+    ge.appendChild(t);
+  });
+
+  /* Nodes */
+  Object.entries(NODE_POS).forEach(([n, [x, y]]) => {
+    const g = document.createElementNS(ns, 'g');
+
+    const c = document.createElementNS(ns, 'circle');
+    c.setAttribute('cx', x); c.setAttribute('cy', y); c.setAttribute('r', '15');
+    c.setAttribute('fill', surfaceColor);
+    c.setAttribute('stroke', borderColor);
+    c.setAttribute('stroke-width', '1');
+    g.appendChild(c);
+
+    const t = document.createElementNS(ns, 'text');
+    t.setAttribute('x', x); t.setAttribute('y', y + 5);
+    t.setAttribute('text-anchor', 'middle');
+    t.setAttribute('font-size', '13');
+    t.setAttribute('font-weight', '600');
+    t.setAttribute('fill', textColor);
+    t.setAttribute('font-family', 'system-ui, sans-serif');
+    t.textContent = n;
+    g.appendChild(t);
+
+    gn.appendChild(g);
+  });
+}
+
+/* ── Edge list update ── */
+function updateEdgeList(levels) {
+  document.getElementById('edge-list').innerHTML = EDGE_IDS.map(id => {
+    const lvl = levels ? levels[id] : '';
+    const col = edgeColor(lvl);
+    return `<div class="edge-item">
+      <div class="edge-dot" style="background:${col}"></div>
+      <span>${id}</span>
+      <span class="edge-lvl" style="color:${col}">${lvl || '—'}</span>
+    </div>`;
+  }).join('');
+}
+
+/* ── Helpers ── */
+function badgeHtml(lvl) {
+  const cls = lvl === 'LOW' ? 'low' : lvl === 'MEDIUM' ? 'med' : lvl === 'HIGH' ? 'high' : 'med';
+  return `<span class="badge badge-${cls}">${lvl || '—'}</span>`;
+}
+
+function routeTags(arr) {
+  return (arr || []).map(r => `<span class="route-tag">${r}</span>`).join('');
+}
+
+function metricVal(v, unit, dec) {
+  if (v == null) return '—';
+  return (dec ? v.toFixed(dec) : v) + (unit || '');
+}
+
+/* ── Render right panel (single model) ── */
+function renderAgents(d) {
+  document.getElementById('stat-vehicles').textContent = d.vehicles ?? '—';
+  document.getElementById('stat-congestion').textContent = d.congestion_level || '—';
+
+  document.getElementById('right-panel').innerHTML = `
+    <div class="section-head" style="margin-bottom:2px">Agent outputs</div>
+
+    <div class="agent-card">
+      <div class="agent-card-title">
+        <span>1 · Traffic</span> ${badgeHtml(d.congestion_level)}
+      </div>
+      <div class="agent-card-body">
+        Edge checked: <code>${d.checked_edge || '—'}</code><br>
+        Vehicles: ${d.vehicles ?? '—'} &nbsp;·&nbsp; Density: ${d.density ?? '—'}<br>
+        Status: ${d.traffic_status || '—'}
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <div class="agent-card-title">2 · Routing</div>
+      <div class="agent-card-body">
+        <div>Selected: ${routeTags(d.selected_route || d.proposed_route)}</div>
+        <div style="margin-top:4px">Alternate: ${routeTags(d.alternate_route)}</div>
+        ${d.explanation ? `<div style="margin-top:6px;font-style:italic">${d.explanation}</div>` : ''}
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <div class="agent-card-title">
+        <span>3 · Safety</span>
+        <span class="badge badge-${d.is_safe ? 'ok' : 'blocked'}">${d.is_safe ? 'safe' : 'blocked'}</span>
+      </div>
+      <div class="agent-card-body">${d.rejection_reason || 'Route cleared for travel'}</div>
+    </div>
+
+    <div class="agent-card">
+      <div class="agent-card-title">4 · Communication</div>
+      <div class="agent-card-body">${d.final_communication || '—'}</div>
+    </div>
+
+    <div class="agent-card">
+      <div class="agent-card-title">Performance</div>
+      <div class="metrics-grid" style="margin-top:4px">
+        <div class="metric-box">
+          <div class="metric-val">${metricVal(d.routing_time_s, 's', 2)}</div>
+          <div class="metric-lbl">Routing</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-val">${metricVal(d.comm_time_s, 's', 2)}</div>
+          <div class="metric-lbl">Comm</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-val">${metricVal(d.total_time_s, 's', 2)}</div>
+          <div class="metric-lbl">Total</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-val">${metricVal(d.estimated_delay_min, ' min')}</div>
+          <div class="metric-lbl">Est. delay</div>
+        </div>
+      </div>
+    </div>`;
+}
+
+/* ── Render right panel (compare mode) ── */
+function renderCompare(d) {
+  document.getElementById('stat-vehicles').textContent = d.vehicles ?? '—';
+  document.getElementById('stat-congestion').textContent = d.congestion_level || '—';
+
+  const llama = (d.models || {}).llama || {};
+  const gemma = (d.models || {}).gemma || {};
+  const routeColor = cssVar('--col-route');
+  const route2Color = cssVar('--col-route2');
+
+  function modelCard(name, md, col) {
+    return `<div class="compare-model-card" style="border-left-color:${col}">
+      <div class="agent-card-title" style="justify-content:space-between">
+        <span>${name}</span>${badgeHtml(md.congestion_level)}
+      </div>
+      <div class="agent-card-body">
+        <div>Route: ${routeTags(md.proposed_route || md.selected_route)}</div>
+        <div style="margin-top:3px">Alt: ${routeTags(md.alternate_route)}</div>
+        ${md.explanation ? `<div style="margin-top:5px;font-style:italic">${md.explanation}</div>` : ''}
+        <div class="metrics-grid" style="margin-top:8px">
+          <div class="metric-box">
+            <div class="metric-val">${metricVal(md.total_time_s, 's', 2)}</div>
+            <div class="metric-lbl">Total</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-val">${metricVal(md.estimated_delay_min, ' min')}</div>
+            <div class="metric-lbl">Delay</div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  document.getElementById('right-panel').innerHTML = `
+    <div class="section-head" style="margin-bottom:4px">Model comparison</div>
+    <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:6px">
+      <div class="legend-row">
+        <div class="legend-line" style="background:${routeColor}"></div>
+        <span>LLaMA 3.3 70B</span>
+      </div>
+      <div class="legend-row">
+        <div class="legend-line" style="background:${route2Color};border-top:1px dashed ${route2Color}"></div>
+        <span>LLaMA 3.1 8B</span>
+      </div>
+    </div>
+    ${modelCard('LLaMA 3.3 70B', llama, routeColor)}
+    ${modelCard('LLaMA 3.1 8B', gemma, route2Color)}
+    <div class="agent-card">
+      <div class="agent-card-title">4 · Communication</div>
+      <div class="agent-card-body">${llama.final_communication || d.final_communication || '—'}</div>
+    </div>`;
+}
+
+/* ── Setting busy state ── */
+function setBusy(busy) {
+  document.getElementById('btn-run').disabled = busy;
+  document.getElementById('btn-compare').disabled = busy;
+  if (busy) {
+    document.getElementById('right-panel').innerHTML = '<div class="empty-state">Running agents…</div>';
+  }
+}
+
+/* ── Mock edge levels (fallback) ── */
+function mockLevels() {
+  const opts = ['LOW','MEDIUM','HIGH'];
+  const obj = {};
+  EDGE_IDS.forEach(id => obj[id] = opts[Math.floor(Math.random() * 3)]);
+  obj['E_F'] = 'LOW';
+  return obj;
+}
+
+/* ── Run simulation ── */
+async function runSim() {
+  const src = document.getElementById('src').value;
+  const dst = document.getElementById('dst').value;
+  document.getElementById('map-mode-lbl').textContent = src + ' → ' + dst;
+  setBusy(true);
+  try {
+    const resp = await fetch(`/analyze?source=${src}&destination=${dst}`);
+    if (!resp.ok) throw new Error('API error');
+    const d = await resp.json();
+    const levels = mockLevels();
+    updateEdgeList(levels);
+    renderMap(d.selected_route || d.proposed_route, [], levels);
+    renderAgents(d);
+  } catch {
+    const levels = mockLevels();
+    const mock = {
+      congestion_level: 'MEDIUM', checked_edge: 'A_E', vehicles: 12, density: 0.06,
+      traffic_status: 'MEDIUM Congestion',
+      selected_route: ['A_E','E_F','F_D'], alternate_route: ['A_B','B_C','C_D'],
+      explanation: 'Route via E_F is optimal due to low vehicle density on that segment.',
+      is_safe: true, rejection_reason: null,
+      final_communication: 'Proceed via nodes E and F — road is clear. Estimated delay: 8 min.',
+      routing_time_s: 1.23, comm_time_s: 0.98, total_time_s: 2.21, estimated_delay_min: 8
+    };
+    updateEdgeList(levels);
+    renderMap(mock.selected_route, [], levels);
+    renderAgents(mock);
+  } finally {
+    setBusy(false);
+  }
+}
+
+/* ── Compare models ── */
+async function runCompare() {
+  const src = document.getElementById('src').value;
+  const dst = document.getElementById('dst').value;
+  document.getElementById('map-mode-lbl').textContent = src + ' → ' + dst + ' (compare)';
+  setBusy(true);
+  try {
+    const resp = await fetch(`/compare?source=${src}&destination=${dst}`);
+    if (!resp.ok) throw new Error('API error');
+    const d = await resp.json();
+    const levels = mockLevels();
+    updateEdgeList(levels);
+    const r1 = (d.models?.llama?.proposed_route || d.models?.llama?.selected_route || []);
+    const r2 = (d.models?.gemma?.proposed_route || d.models?.gemma?.selected_route || []);
+    renderMap(r1, r2, levels);
+    renderCompare(d);
+  } catch {
+    const levels = mockLevels();
+    const mock = {
+      vehicles: 12, density: 0.06, congestion_level: 'MEDIUM',
+      models: {
+        llama: {
+          congestion_level: 'MEDIUM',
+          proposed_route: ['A_E','E_F','F_D'], alternate_route: ['A_B','B_C','C_D'],
+          explanation: 'Southern path via E_F is fastest under current load.',
+          is_safe: true, final_communication: 'Head south through E and F. Road is open.',
+          total_time_s: 2.21, estimated_delay_min: 8
+        },
+        gemma: {
+          congestion_level: 'MEDIUM',
+          proposed_route: ['A_B','B_C','C_D'], alternate_route: ['A_E','E_F','F_D'],
+          explanation: 'Northern corridor avoids potential southern congestion.',
+          is_safe: true,
+          total_time_s: 1.87, estimated_delay_min: 10
+        }
+      }
+    };
+    updateEdgeList(levels);
+    renderMap(mock.models.llama.proposed_route, mock.models.gemma.proposed_route, levels);
+    renderCompare(mock);
+  } finally {
+    setBusy(false);
+  }
+}
+
+/* ── Init ── */
+loadNodes();
+checkHealth();
+renderMap([], [], null);
+updateEdgeList(null);
 </script>
 </body>
 </html>
