@@ -2,581 +2,631 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>AgentVANET</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sand:#f0ede6;
+  --sand2:#e6e2d8;
+  --sand3:#d4cfc2;
+  --sage:#3d5c44;
+  --sage-l:#dde8de;
+  --sage-m:#6a8f72;
+  --sage-d:#2c4232;
+  --ink:#1a1a16;
+  --ink2:#5a5a50;
+  --ink3:#94948a;
+  --white:#ffffff;
+  --red:#c94040;
+  --red-bg:#fad8d8;
+  --green:#2a6e44;
+  --green-bg:#d4edde;
+  --amber:#b87010;
+  --amber-bg:#fce9c4;
+  --blue:#2a5a8a;
+  --blue-bg:#d8eaf7;
+  --r:14px;
+}
+html,body{height:100%;background:var(--sand);font-family:'DM Sans',sans-serif;color:var(--ink);font-size:14px;line-height:1.5}
 
-  :root {
-    --bg: #f9f9f8;
-    --surface: #ffffff;
-    --border: rgba(0,0,0,0.1);
-    --border-em: rgba(0,0,0,0.18);
-    --text: #1a1a18;
-    --text-2: #5c5c58;
-    --text-3: #9a9a94;
-    --font: 'Inter', system-ui, sans-serif;
-    --r: 8px;
-    --r-lg: 12px;
-    --col-low: #1d9e75;
-    --col-med: #b87010;
-    --col-high: #d93a3a;
-    --col-route: #2577cc;
-    --col-route2: #c04570;
-  }
+.app{display:block;min-height:100vh}
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #161614;
-      --surface: #1f1f1d;
-      --border: rgba(255,255,255,0.1);
-      --border-em: rgba(255,255,255,0.18);
-      --text: #f0efe8;
-      --text-2: #a8a89e;
-      --text-3: #636360;
-      --col-low: #25c490;
-      --col-med: #e09930;
-      --col-high: #f05050;
-      --col-route: #4d9de0;
-      --col-route2: #e0608a;
-    }
-  }
+/* Main */
+.main{padding:26px 28px 36px;display:flex;flex-direction:column;gap:18px;overflow-y:auto}
+.main::-webkit-scrollbar{width:5px}
+.main::-webkit-scrollbar-thumb{background:var(--sand3);border-radius:3px}
 
-  html, body { height: 100%; background: var(--bg); color: var(--text); font-family: var(--font); font-size: 14px; line-height: 1.5; }
+/* Topbar */
+.topbar{display:flex;align-items:center;gap:14px}
+.tbar-left h1{font-family:'DM Serif Display',serif;font-size:24px;font-weight:400}
+.tbar-left p{font-size:12px;color:var(--ink3);margin-top:2px}
+.tbar-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.hbadge{display:flex;align-items:center;gap:6px;background:var(--white);border:1px solid var(--sand3);border-radius:99px;padding:0 14px;height:36px;font-size:12px;color:var(--ink2)}
+.hdot{width:7px;height:7px;border-radius:50%;background:var(--sand3)}
+.hdot.online{background:var(--green)}
+.hdot.offline{background:var(--red)}
 
-  /* ── Layout ── */
-  .app { display: grid; grid-template-columns: 210px 1fr 270px; grid-template-rows: 48px 1fr; height: 100vh; gap: 1px; background: var(--border); }
-  .topbar { grid-column: 1 / -1; background: var(--surface); display: flex; align-items: center; padding: 0 18px; gap: 16px; border-bottom: 1px solid var(--border); }
-  .topbar-title { font-size: 14px; font-weight: 600; letter-spacing: -.01em; }
-  .topbar-sub { font-size: 12px; color: var(--text-3); }
-  .dot-status { width: 7px; height: 7px; border-radius: 50%; background: var(--col-low); margin-left: auto; }
-  .dot-status-lbl { font-size: 11px; color: var(--text-3); }
+/* Stat row */
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.sc{background:var(--white);border-radius:var(--r);padding:18px 20px;border:1px solid var(--sand3);overflow:hidden;position:relative;animation:fu .4s ease both}
+.sc.accent{background:var(--sage);border-color:var(--sage)}
+.sc-lbl{font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em;font-weight:500;margin-bottom:8px}
+.sc.accent .sc-lbl{color:rgba(255,255,255,.55)}
+.sc-val{font-family:'DM Serif Display',serif;font-size:28px;font-weight:400;color:var(--ink);line-height:1}
+.sc.accent .sc-val{color:#fff}
+.sc-foot{display:flex;align-items:center;gap:7px;margin-top:8px}
+.sc-sub{font-size:11px;color:var(--ink3)}
+.sc.accent .sc-sub{color:rgba(255,255,255,.45)}
+.sc-art{position:absolute;right:14px;top:50%;transform:translateY(-50%)}
+.barspark{display:flex;align-items:flex-end;gap:3px;height:38px}
+.barspark span{width:5px;border-radius:2px;background:var(--sage-l)}
+.barspark span.h{background:var(--sage)}
+.linespark{width:72px;height:38px}
 
-  .left { background: var(--surface); padding: 14px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
-  .center { background: var(--bg); display: flex; align-items: center; justify-content: center; position: relative; }
-  .right { background: var(--surface); padding: 14px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
+/* Chip */
+.chip{display:inline-block;font-size:10px;padding:2px 8px;border-radius:99px;font-weight:600;letter-spacing:.02em}
+.cu{background:var(--green-bg);color:var(--green)}
+.cd{background:var(--red-bg);color:var(--red)}
+.ca{background:var(--amber-bg);color:var(--amber)}
+.cb{background:var(--blue-bg);color:var(--blue)}
+.sc.accent .cu{background:rgba(255,255,255,.18);color:#c8f0d4}
 
-  /* ── Form elements ── */
-  .field-label { font-size: 10px; color: var(--text-3); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 5px; }
-  select { width: 100%; height: 32px; font-family: var(--font); font-size: 13px; background: var(--bg); border: 1px solid var(--border-em); border-radius: var(--r); color: var(--text); padding: 0 8px; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23999' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; }
-  select:focus { outline: none; border-color: var(--col-route); }
+/* Mid row: controls + map */
+.mid-row{display:grid;grid-template-columns:260px 1fr;gap:14px}
 
-  .btn { width: 100%; height: 33px; font-family: var(--font); font-size: 13px; border-radius: var(--r); cursor: pointer; transition: opacity .15s, background .15s; font-weight: 500; }
-  .btn-primary { background: var(--text); color: var(--surface); border: none; }
-  .btn-primary:hover { opacity: .82; }
-  .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border-em); }
-  .btn-secondary:hover { background: var(--bg); }
-  .btn:disabled { opacity: .4; cursor: default; }
+/* Control panel */
+.ctrl-panel{display:flex;flex-direction:column;gap:14px}
+.card{background:var(--white);border-radius:var(--r);padding:18px 20px;border:1px solid var(--sand3)}
+.card-head{font-size:12px;font-weight:600;color:var(--ink);text-transform:uppercase;letter-spacing:.05em;display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.card-head svg{width:14px;height:14px;stroke:var(--sage);stroke-width:2;fill:none}
+.field{margin-bottom:10px}
+.field-lbl{font-size:11px;color:var(--ink3);font-weight:500;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}
+select{width:100%;height:34px;font-family:'DM Sans',sans-serif;font-size:13px;background:var(--sand);border:1px solid var(--sand3);border-radius:8px;color:var(--ink);padding:0 10px;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2394948a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center}
+select:focus{outline:none;border-color:var(--sage-m)}
+.btn-stack{display:flex;flex-direction:column;gap:8px}
+.btn{width:100%;height:36px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;border-radius:99px;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:7px;transition:opacity .15s,background .15s}
+.btn svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none}
+.btn-p{background:var(--sage);color:#fff}
+.btn-p:hover{background:var(--sage-d)}
+.btn-s{background:var(--sand2);color:var(--ink)}
+.btn-s:hover{background:var(--sand3)}
+.btn:disabled{opacity:.4;cursor:default}
 
-  .divider { height: 1px; background: var(--border); flex-shrink: 0; }
-  .section-head { font-size: 11px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: .07em; }
+.nstat-list{display:flex;flex-direction:column}
+.nstat{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--sand2);font-size:12px}
+.nstat:last-child{border-bottom:none}
+.nstat-k{color:var(--ink3)}
+.nstat-v{font-weight:500;color:var(--ink);text-align:right;max-width:130px;word-break:break-all;font-size:11px}
 
-  /* ── Stat rows ── */
-  .stat-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; font-size: 12px; border-bottom: 1px solid var(--border); }
-  .stat-row:last-child { border-bottom: none; }
-  .stat-row span:first-child { color: var(--text-2); }
-  .stat-val { font-weight: 500; }
+/* Map card */
+.map-card{background:var(--white);border-radius:var(--r);border:1px solid var(--sand3);display:flex;flex-direction:column}
+.map-hdr{padding:13px 18px;border-bottom:1px solid var(--sand2);display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.map-title{font-size:13px;font-weight:500;color:var(--ink)}
+.map-mode{font-size:11px;color:var(--ink3);background:var(--sand);padding:2px 10px;border-radius:99px;margin-left:auto}
+.map-legend{display:flex;align-items:center;gap:10px}
+.leg{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--ink3)}
+.ldot{width:7px;height:7px;border-radius:50%}
+#map-svg{width:100%;max-width:600px;display:block;margin:0 auto}
+.edge-strip-wrap{padding:10px 18px 14px;border-top:1px solid var(--sand2)}
+.edge-strip-lbl{font-size:11px;font-weight:600;color:var(--ink3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+.edge-strip{display:flex;flex-wrap:wrap;gap:6px}
 
-  /* ── Edge list ── */
-  .edge-item { display: flex; align-items: center; gap: 8px; padding: 3px 0; font-size: 11px; color: var(--text-2); }
-  .edge-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; background: var(--border-em); }
-  .edge-lvl { margin-left: auto; font-size: 10px; font-weight: 600; }
+/* Bottom row: agents */
+.agent-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.acard{background:var(--white);border-radius:var(--r);border:1px solid var(--sand3);padding:16px 18px;animation:fu .4s ease both}
+.acard.perf{background:var(--sage-l);border-color:var(--sage-m)}
+.acard-head{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.anum{width:22px;height:22px;border-radius:50%;background:var(--sage-l);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--sage);flex-shrink:0}
+.anum.on{background:var(--sage);color:#fff}
+.acard-title{font-size:12px;font-weight:600;color:var(--ink)}
+.acard-body{font-size:12px;color:var(--ink2);line-height:1.65}
+.acard-body code{font-family:monospace;font-size:11px;background:var(--sand);padding:1px 5px;border-radius:4px;color:var(--ink)}
+.rtags{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px}
+.rtag{font-size:11px;padding:2px 8px;border-radius:99px;background:var(--sage-l);color:var(--sage-d);font-family:monospace;font-weight:500}
+.rtag.alt{background:var(--sand2);color:var(--ink2)}
+.adiv{height:1px;background:var(--sand2);margin:7px 0}
+.mbox-row{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:4px}
+.mbox{background:var(--white);border-radius:10px;padding:8px;text-align:center}
+.acard.perf .mbox{background:rgba(255,255,255,.7)}
+.mbox-v{font-family:'DM Serif Display',serif;font-size:18px;color:var(--ink)}
+.mbox-l{font-size:10px;color:var(--ink3);margin-top:2px;text-transform:uppercase;letter-spacing:.04em}
 
-  /* ── Map ── */
-  #map-svg { width: 100%; max-width: 640px; display: block; }
-  #map-mode-lbl { position: absolute; top: 12px; left: 14px; font-size: 11px; color: var(--text-3); background: var(--surface); padding: 3px 8px; border-radius: 99px; border: 1px solid var(--border); }
+/* Compare row */
+.compare-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.ccard{background:var(--white);border-radius:var(--r);border:1px solid var(--sand3);border-left-width:3px;padding:16px 18px}
+.ccard-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.ccard-title{font-size:13px;font-weight:600;color:var(--ink)}
 
-  /* ── Right panel cards ── */
-  .agent-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 10px 12px; }
-  .agent-card-title { font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 7px; margin-bottom: 5px; }
-  .agent-card-body { font-size: 12px; color: var(--text-2); line-height: 1.6; }
+/* Empty */
+.empty{display:flex;flex-direction:column;align-items:center;padding:32px 16px;text-align:center;gap:10px;opacity:.6}
+.empty-icon{width:38px;height:38px;border-radius:50%;background:var(--sage-l);display:flex;align-items:center;justify-content:center}
+.empty-icon svg{width:18px;height:18px;stroke:var(--sage);stroke-width:1.8;fill:none}
+.empty-txt{font-size:12px;color:var(--ink3);line-height:1.6}
 
-  .badge { font-size: 10px; padding: 2px 7px; border-radius: 99px; font-weight: 600; }
-  .badge-low { background: #d0f0e4; color: #0d6647; }
-  .badge-med { background: #fce9c4; color: #8a5500; }
-  .badge-high { background: #fad8d8; color: #8f2222; }
-  .badge-ok { background: #d8f0e0; color: #1a6b3c; }
-  .badge-blocked { background: #fad8d8; color: #8f2222; }
-  @media (prefers-color-scheme: dark) {
-    .badge-low { background: #0a3323; color: #3de0a0; }
-    .badge-med { background: #3a2400; color: #f0a820; }
-    .badge-high { background: #3a1010; color: #f07070; }
-    .badge-ok { background: #0a2e18; color: #40d47a; }
-    .badge-blocked { background: #3a1010; color: #f07070; }
-  }
-
-  .route-tag { display: inline-block; font-size: 11px; padding: 1px 6px; border-radius: 4px; background: var(--surface); border: 1px solid var(--border-em); margin: 2px 2px 0 0; font-family: monospace; color: var(--text); }
-
-  .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-  .metric-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 7px 8px; text-align: center; }
-  .metric-val { font-size: 16px; font-weight: 600; }
-  .metric-lbl { font-size: 10px; color: var(--text-3); margin-top: 1px; }
-
-  .legend-row { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--text-2); }
-  .legend-line { width: 22px; height: 2px; border-radius: 1px; flex-shrink: 0; }
-
-  .empty-state { color: var(--text-3); font-size: 13px; text-align: center; padding: 48px 16px; }
-
-  .compare-model-card { border-left: 2px solid; border-radius: var(--r-lg); padding: 10px 12px; background: var(--bg); border-top: 1px solid var(--border); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-
-  code { font-family: monospace; font-size: 12px; }
-
-  @media (max-width: 780px) {
-    .app { grid-template-columns: 1fr; grid-template-rows: 48px auto auto auto; height: auto; }
-    .center { min-height: 280px; }
-  }
+@keyframes fu{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.sc:nth-child(1){animation-delay:.04s}.sc:nth-child(2){animation-delay:.08s}
+.sc:nth-child(3){animation-delay:.12s}.sc:nth-child(4){animation-delay:.16s}
+.acard:nth-child(1){animation-delay:.05s}.acard:nth-child(2){animation-delay:.1s}
+.acard:nth-child(3){animation-delay:.15s}.acard:nth-child(4){animation-delay:.2s}
 </style>
 </head>
 <body>
 <div class="app">
 
+
+<!-- Main -->
+<div class="main">
+
   <!-- Topbar -->
-  <header class="topbar">
-    <span class="topbar-title">AgentVANET</span>
-    <span class="topbar-sub">Multi-agent traffic routing · SUMO simulation</span>
-    <div class="dot-status" id="health-dot"></div>
-    <span class="dot-status-lbl" id="health-lbl">checking…</span>
-  </header>
-
-  <!-- Left panel -->
-  <aside class="left">
-    <div>
-      <div class="field-label">Source</div>
-      <select id="src"></select>
+  <div class="topbar">
+    <div class="tbar-left">
+      <h1>AgentVANET</h1>
+      <p>Multi-agent AI traffic routing &nbsp;·&nbsp; SUMO simulation</p>
     </div>
-    <div>
-      <div class="field-label">Destination</div>
-      <select id="dst"></select>
+    <div class="tbar-right">
+      <div class="hbadge">
+        <div class="hdot" id="hdot"></div>
+        <span id="hlbl">checking…</span>
+      </div>
     </div>
-    <button class="btn btn-primary" id="btn-run" onclick="runSim()">Run simulation</button>
-    <button class="btn btn-secondary" id="btn-compare" onclick="runCompare()">Compare 2 models</button>
+  </div>
 
-    <div class="divider"></div>
-    <div class="section-head">Network</div>
-    <div id="net-stats">
-      <div class="stat-row"><span>Nodes</span><span class="stat-val">6</span></div>
-      <div class="stat-row"><span>Edges</span><span class="stat-val">7</span></div>
-      <div class="stat-row"><span>Vehicles</span><span class="stat-val" id="stat-vehicles">—</span></div>
-      <div class="stat-row"><span>Congestion</span><span class="stat-val" id="stat-congestion">—</span></div>
+  <!-- Stat row -->
+  <div class="stat-row">
+    <div class="sc">
+      <div class="sc-lbl">Total nodes</div>
+      <div class="sc-val">6</div>
+      <div class="sc-foot"><span class="chip cb">A · B · C · D · E · F</span></div>
+      <div class="sc-art">
+        <div class="barspark">
+          <span style="height:14px"></span><span style="height:22px" class="h"></span>
+          <span style="height:18px"></span><span style="height:32px" class="h"></span>
+          <span style="height:20px"></span><span style="height:36px" class="h"></span>
+        </div>
+      </div>
+    </div>
+    <div class="sc">
+      <div class="sc-lbl">Active edges</div>
+      <div class="sc-val">7</div>
+      <div class="sc-foot">
+        <span class="chip" id="sc-cong" style="background:var(--amber-bg);color:var(--amber)">—</span>
+        <span class="sc-sub">congestion</span>
+      </div>
+      <div class="sc-art">
+        <svg class="linespark" viewBox="0 0 72 38" fill="none">
+          <polyline points="0,32 12,24 24,28 36,14 48,20 60,10 72,16" stroke="#6a8f72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+    <div class="sc">
+      <div class="sc-lbl">Vehicles</div>
+      <div class="sc-val" id="sc-veh">—</div>
+      <div class="sc-foot">
+        <span class="chip cu" id="sc-dens">—</span>
+        <span class="sc-sub">density</span>
+      </div>
+    </div>
+    <div class="sc accent">
+      <div class="sc-lbl">Routing time</div>
+      <div class="sc-val" id="sc-time">—</div>
+      <div class="sc-foot">
+        <span class="chip cu" id="sc-delay">—</span>
+        <span class="sc-sub">est. delay</span>
+      </div>
+      <div class="sc-art">
+        <svg class="linespark" viewBox="0 0 72 38" fill="none">
+          <polyline points="0,30 16,18 32,24 48,10 64,18 72,8" stroke="rgba(255,255,255,.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls + Map -->
+  <div class="mid-row">
+
+    <!-- Left controls -->
+    <div class="ctrl-panel">
+      <div class="card">
+        <div class="card-head">
+          <svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7"/><path d="M10 7v3l2 2" stroke-linecap="round"/></svg>
+          Simulation
+        </div>
+        <div class="field">
+          <div class="field-lbl">Source node</div>
+          <select id="src"></select>
+        </div>
+        <div class="field">
+          <div class="field-lbl">Destination</div>
+          <select id="dst"></select>
+        </div>
+        <div class="btn-stack" style="margin-top:4px">
+          <button class="btn btn-p" id="btn-run" onclick="runSim()">
+            <svg viewBox="0 0 20 20"><polygon points="6,4 16,10 6,16"/></svg>
+            Run simulation
+          </button>
+          <button class="btn btn-s" id="btn-cmp" onclick="runCompare()">
+            <svg viewBox="0 0 20 20"><path d="M4 10h12M14 7l3 3-3 3M6 7l-3 3 3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Compare 2 models
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <svg viewBox="0 0 20 20"><rect x="2" y="2" width="16" height="16" rx="2"/><path d="M6 10h8M10 6v8" stroke-linecap="round"/></svg>
+          Network
+        </div>
+        <div class="nstat-list">
+          <div class="nstat"><span class="nstat-k">Nodes</span><span class="nstat-v">A B C D E F</span></div>
+          <div class="nstat"><span class="nstat-k">Edges</span><span class="nstat-v">7 edges</span></div>
+          <div class="nstat"><span class="nstat-k">Checked</span><span class="nstat-v" id="ns-edge">—</span></div>
+          <div class="nstat"><span class="nstat-k">Status</span><span class="nstat-v" id="ns-status">—</span></div>
+          <div class="nstat"><span class="nstat-k">Model</span><span class="nstat-v">LLaMA 3.3 70B</span></div>
+          <div class="nstat"><span class="nstat-k">Framework</span><span class="nstat-v">LangGraph · FastAPI</span></div>
+        </div>
+      </div>
     </div>
 
-    <div class="divider"></div>
-    <div class="section-head">Edge conditions</div>
-    <div id="edge-list"></div>
-  </aside>
+    <!-- Map -->
+    <div class="map-card">
+      <div class="map-hdr">
+        <div class="map-title">Road network — SUMO</div>
+        <div class="map-legend">
+          <div class="leg"><div class="ldot" style="background:#2a6e44"></div>Low</div>
+          <div class="leg"><div class="ldot" style="background:#b87010"></div>Medium</div>
+          <div class="leg"><div class="ldot" style="background:#c94040"></div>High</div>
+          <div class="leg"><div class="ldot" style="background:#3d5c44"></div>Route 1</div>
+          <div class="leg"><div class="ldot" style="background:#8a4a1a;border-radius:0"></div>Route 2</div>
+        </div>
+        <div class="map-mode" id="map-mode">—</div>
+      </div>
+      <div style="padding:18px;display:flex;justify-content:center">
+        <svg id="map-svg" viewBox="0 0 620 420" xmlns="http://www.w3.org/2000/svg">
+          <g id="g-edges"></g>
+          <g id="g-nodes"></g>
+        </svg>
+      </div>
+      <div class="edge-strip-wrap">
+        <div class="edge-strip-lbl">Edge conditions</div>
+        <div class="edge-strip" id="edge-strip"></div>
+      </div>
+    </div>
+  </div>
 
-  <!-- Center map -->
-  <main class="center">
-    <svg id="map-svg" viewBox="0 0 680 480" xmlns="http://www.w3.org/2000/svg">
-      <g id="g-edges"></g>
-      <g id="g-nodes"></g>
-    </svg>
-    <div id="map-mode-lbl">—</div>
-  </main>
+  <!-- Agent cards row -->
+  <div id="agent-row-wrap"></div>
 
-  <!-- Right panel -->
-  <aside class="right" id="right-panel">
-    <div class="empty-state">Run a simulation<br>to see agent outputs</div>
-  </aside>
-
+</div>
 </div>
 
 <script>
-/* ── Constants ── */
-const NODE_POS = { A:[80,260], B:[240,80], C:[500,80], D:[620,260], E:[270,400], F:[480,400] };
-const EDGES = [['A','B'],['A','E'],['B','C'],['C','D'],['E','C'],['E','F'],['F','D']];
-const EDGE_IDS = ['A_B','A_E','B_C','C_D','E_C','E_F','F_D'];
+const NODE_POS={A:[65,230],B:[200,65],C:[450,65],D:[565,230],E:[215,350],F:[430,350]};
+const EDGES=[['A','B'],['A','E'],['B','C'],['C','D'],['E','C'],['E','F'],['F','D']];
+const EDGE_IDS=['A_B','A_E','B_C','C_D','E_C','E_F','F_D'];
 
-function cssVar(name) {
-  return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+function ecol(lvl){
+  if(lvl==='LOW')return'#2a6e44';
+  if(lvl==='MEDIUM')return'#b87010';
+  if(lvl==='HIGH')return'#c94040';
+  return'#c4bfb0';
+}
+function ebg(lvl){
+  if(lvl==='LOW')return'#d4edde';
+  if(lvl==='MEDIUM')return'#fce9c4';
+  if(lvl==='HIGH')return'#fad8d8';
+  return'#f0ede6';
 }
 
-function edgeColor(lvl) {
-  if (lvl === 'LOW') return cssVar('--col-low');
-  if (lvl === 'MEDIUM') return cssVar('--col-med');
-  if (lvl === 'HIGH') return cssVar('--col-high');
-  return cssVar('--border-em');
+async function loadNodes(){
+  try{const r=await fetch('/nodes');fillSelects(await r.json());}
+  catch{fillSelects(['A','B','C','D','E','F']);}
 }
-
-/* ── Populate dropdowns ── */
-async function loadNodes() {
-  try {
-    const r = await fetch('/nodes');
-    const nodes = await r.json();
-    populateSelects(nodes);
-  } catch {
-    populateSelects(['A','B','C','D','E','F']);
-  }
-}
-
-function populateSelects(nodes) {
-  ['src','dst'].forEach((id, i) => {
-    const sel = document.getElementById(id);
-    sel.innerHTML = nodes.map(n => `<option${(i===0&&n==='A')||(i===1&&n==='D')?' selected':''}>${n}</option>`).join('');
+function fillSelects(ns){
+  ['src','dst'].forEach((id,i)=>{
+    document.getElementById(id).innerHTML=ns.map(n=>`<option${(i===0&&n==='A')||(i===1&&n==='D')?' selected':''}>${n}</option>`).join('');
   });
 }
 
-/* ── Health check ── */
-async function checkHealth() {
-  try {
-    const r = await fetch('/health');
-    const ok = r.ok;
-    document.getElementById('health-dot').style.background = ok ? cssVar('--col-low') : cssVar('--col-high');
-    document.getElementById('health-lbl').textContent = ok ? 'online' : 'offline';
-  } catch {
-    document.getElementById('health-dot').style.background = cssVar('--col-high');
-    document.getElementById('health-lbl').textContent = 'offline';
+async function checkHealth(){
+  try{
+    const r=await fetch('/health');
+    const ok=r.ok;
+    document.getElementById('hdot').className='hdot '+(ok?'online':'offline');
+    document.getElementById('hlbl').textContent=ok?'online':'offline';
+  }catch{
+    document.getElementById('hdot').className='hdot offline';
+    document.getElementById('hlbl').textContent='offline';
   }
 }
 
-/* ── SVG map rendering ── */
-function renderMap(hlRoute, hlRoute2, edgeLevels) {
-  const ge = document.getElementById('g-edges');
-  const gn = document.getElementById('g-nodes');
-  ge.innerHTML = ''; gn.innerHTML = '';
+function renderMap(hl1,hl2,levels){
+  const ge=document.getElementById('g-edges');
+  const gn=document.getElementById('g-nodes');
+  ge.innerHTML='';gn.innerHTML='';
+  const ns='http://www.w3.org/2000/svg';
+  const h1=new Set(hl1||[]);
+  if(h1.has('A_E')&&h1.has('F_D'))h1.add('E_F');
+  const h2=new Set(hl2||[]);
+  if(h2.has('A_E')&&h2.has('F_D'))h2.add('E_F');
 
-  const textColor = cssVar('--text');
-  const textMuted = cssVar('--text-3');
-  const surfaceColor = cssVar('--surface');
-  const borderColor = cssVar('--border-em');
-  const routeColor = cssVar('--col-route');
-  const route2Color = cssVar('--col-route2');
+  EDGES.forEach(([a,b])=>{
+    const id=a+'_'+b;
+    const [x1,y1]=NODE_POS[a],[x2,y2]=NODE_POS[b];
+    const inH1=h1.has(id),inH2=h2.has(id);
+    const lvl=levels?levels[id]:'';
+    const len=Math.hypot(x2-x1,y2-y1)||1;
+    const ox=(-(y2-y1)/len)*4,oy=((x2-x1)/len)*4;
 
-  /* E_F fix: always add if A_E and F_D are in route */
-  const hl = new Set(hlRoute || []);
-  if (hl.has('A_E') && hl.has('F_D')) hl.add('E_F');
-  const hl2 = new Set(hlRoute2 || []);
-  if (hl2.has('A_E') && hl2.has('F_D')) hl2.add('E_F');
-
-  const ns = 'http://www.w3.org/2000/svg';
-
-  EDGES.forEach(([a, b]) => {
-    const id = a + '_' + b;
-    const [x1, y1] = NODE_POS[a];
-    const [x2, y2] = NODE_POS[b];
-    const isHl = hl.has(id);
-    const isHl2 = hl2.has(id);
-    const lvl = edgeLevels ? edgeLevels[id] : '';
-
-    /* Base edge */
-    const base = document.createElementNS(ns, 'line');
-    base.setAttribute('x1', x1); base.setAttribute('y1', y1);
-    base.setAttribute('x2', x2); base.setAttribute('y2', y2);
-    base.setAttribute('stroke', isHl || isHl2 ? 'transparent' : edgeColor(lvl));
-    base.setAttribute('stroke-width', '1.5');
-    base.setAttribute('opacity', '0.55');
+    const base=document.createElementNS(ns,'line');
+    base.setAttribute('x1',x1);base.setAttribute('y1',y1);
+    base.setAttribute('x2',x2);base.setAttribute('y2',y2);
+    base.setAttribute('stroke',inH1||inH2?'transparent':ecol(lvl));
+    base.setAttribute('stroke-width','2');base.setAttribute('opacity','0.5');
     ge.appendChild(base);
 
-    /* Route 1 (solid, offset -3) */
-    if (isHl) {
-      const dx = -(y2-y1) / Math.hypot(x2-x1, y2-y1) * 3;
-      const dy = (x2-x1) / Math.hypot(x2-x1, y2-y1) * 3;
-      const l = document.createElementNS(ns, 'line');
-      l.setAttribute('x1', x1+dx); l.setAttribute('y1', y1+dy);
-      l.setAttribute('x2', x2+dx); l.setAttribute('y2', y2+dy);
-      l.setAttribute('stroke', routeColor);
-      l.setAttribute('stroke-width', '2.5');
-      l.setAttribute('opacity', '0.9');
+    if(inH1){
+      const l=document.createElementNS(ns,'line');
+      l.setAttribute('x1',x1-ox);l.setAttribute('y1',y1-oy);
+      l.setAttribute('x2',x2-ox);l.setAttribute('y2',y2-oy);
+      l.setAttribute('stroke','#3d5c44');l.setAttribute('stroke-width','3');
+      l.setAttribute('stroke-linecap','round');l.setAttribute('opacity','0.95');
+      ge.appendChild(l);
+    }
+    if(inH2){
+      const l=document.createElementNS(ns,'line');
+      l.setAttribute('x1',x1+ox);l.setAttribute('y1',y1+oy);
+      l.setAttribute('x2',x2+ox);l.setAttribute('y2',y2+oy);
+      l.setAttribute('stroke','#8a4a1a');l.setAttribute('stroke-width','2.5');
+      l.setAttribute('stroke-dasharray','8 5');l.setAttribute('stroke-linecap','round');
       ge.appendChild(l);
     }
 
-    /* Route 2 (dashed, offset +3) */
-    if (isHl2) {
-      const dx = (y2-y1) / Math.hypot(x2-x1, y2-y1) * 3;
-      const dy = -(x2-x1) / Math.hypot(x2-x1, y2-y1) * 3;
-      const l = document.createElementNS(ns, 'line');
-      l.setAttribute('x1', x1+dx); l.setAttribute('y1', y1+dy);
-      l.setAttribute('x2', x2+dx); l.setAttribute('y2', y2+dy);
-      l.setAttribute('stroke', route2Color);
-      l.setAttribute('stroke-width', '2.5');
-      l.setAttribute('stroke-dasharray', '7 4');
-      l.setAttribute('opacity', '0.85');
-      ge.appendChild(l);
-    }
-
-    /* Edge label */
-    const mx = (x1+x2)/2, my = (y1+y2)/2;
-    const t = document.createElementNS(ns, 'text');
-    t.setAttribute('x', mx); t.setAttribute('y', my - 7);
-    t.setAttribute('text-anchor', 'middle');
-    t.setAttribute('font-size', '10');
-    t.setAttribute('font-family', 'monospace');
-    t.setAttribute('fill', textMuted);
-    t.textContent = id;
+    const mx=(x1+x2)/2,my=(y1+y2)/2;
+    const t=document.createElementNS(ns,'text');
+    t.setAttribute('x',mx);t.setAttribute('y',my-8);
+    t.setAttribute('text-anchor','middle');t.setAttribute('font-size','10');
+    t.setAttribute('font-family','monospace');t.setAttribute('fill','#94948a');
+    t.textContent=id;
     ge.appendChild(t);
   });
 
-  /* Nodes */
-  Object.entries(NODE_POS).forEach(([n, [x, y]]) => {
-    const g = document.createElementNS(ns, 'g');
-
-    const c = document.createElementNS(ns, 'circle');
-    c.setAttribute('cx', x); c.setAttribute('cy', y); c.setAttribute('r', '15');
-    c.setAttribute('fill', surfaceColor);
-    c.setAttribute('stroke', borderColor);
-    c.setAttribute('stroke-width', '1');
-    g.appendChild(c);
-
-    const t = document.createElementNS(ns, 'text');
-    t.setAttribute('x', x); t.setAttribute('y', y + 5);
-    t.setAttribute('text-anchor', 'middle');
-    t.setAttribute('font-size', '13');
-    t.setAttribute('font-weight', '600');
-    t.setAttribute('fill', textColor);
-    t.setAttribute('font-family', 'system-ui, sans-serif');
-    t.textContent = n;
-    g.appendChild(t);
-
+  Object.entries(NODE_POS).forEach(([n,[x,y]])=>{
+    const g=document.createElementNS(ns,'g');
+    const c=document.createElementNS(ns,'circle');
+    c.setAttribute('cx',x);c.setAttribute('cy',y);c.setAttribute('r','16');
+    c.setAttribute('fill','#ffffff');c.setAttribute('stroke','#d4cfc2');c.setAttribute('stroke-width','1.5');
+    const t=document.createElementNS(ns,'text');
+    t.setAttribute('x',x);t.setAttribute('y',y+5);
+    t.setAttribute('text-anchor','middle');t.setAttribute('font-size','13');
+    t.setAttribute('font-weight','600');t.setAttribute('fill','#1a1a16');
+    t.setAttribute('font-family','DM Sans,sans-serif');
+    t.textContent=n;
+    g.appendChild(c);g.appendChild(t);
     gn.appendChild(g);
   });
 }
 
-/* ── Edge list update ── */
-function updateEdgeList(levels) {
-  document.getElementById('edge-list').innerHTML = EDGE_IDS.map(id => {
-    const lvl = levels ? levels[id] : '';
-    const col = edgeColor(lvl);
-    return `<div class="edge-item">
-      <div class="edge-dot" style="background:${col}"></div>
-      <span>${id}</span>
-      <span class="edge-lvl" style="color:${col}">${lvl || '—'}</span>
-    </div>`;
+function renderEdgeStrip(levels){
+  document.getElementById('edge-strip').innerHTML=EDGE_IDS.map(id=>{
+    const lvl=levels?levels[id]:'';
+    const col=ecol(lvl),bg=ebg(lvl);
+    return `<span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:3px 10px;border-radius:99px;background:${bg};color:${col};font-weight:600;font-family:monospace">${id}<span style="font-family:'DM Sans',sans-serif;font-weight:400;opacity:.75;font-size:10px">${lvl||'—'}</span></span>`;
   }).join('');
 }
 
-/* ── Helpers ── */
-function badgeHtml(lvl) {
-  const cls = lvl === 'LOW' ? 'low' : lvl === 'MEDIUM' ? 'med' : lvl === 'HIGH' ? 'high' : 'med';
-  return `<span class="badge badge-${cls}">${lvl || '—'}</span>`;
-}
-
-function routeTags(arr) {
-  return (arr || []).map(r => `<span class="route-tag">${r}</span>`).join('');
-}
-
-function metricVal(v, unit, dec) {
-  if (v == null) return '—';
-  return (dec ? v.toFixed(dec) : v) + (unit || '');
-}
-
-/* ── Render right panel (single model) ── */
-function renderAgents(d) {
-  document.getElementById('stat-vehicles').textContent = d.vehicles ?? '—';
-  document.getElementById('stat-congestion').textContent = d.congestion_level || '—';
-
-  document.getElementById('right-panel').innerHTML = `
-    <div class="section-head" style="margin-bottom:2px">Agent outputs</div>
-
-    <div class="agent-card">
-      <div class="agent-card-title">
-        <span>1 · Traffic</span> ${badgeHtml(d.congestion_level)}
-      </div>
-      <div class="agent-card-body">
-        Edge checked: <code>${d.checked_edge || '—'}</code><br>
-        Vehicles: ${d.vehicles ?? '—'} &nbsp;·&nbsp; Density: ${d.density ?? '—'}<br>
-        Status: ${d.traffic_status || '—'}
-      </div>
-    </div>
-
-    <div class="agent-card">
-      <div class="agent-card-title">2 · Routing</div>
-      <div class="agent-card-body">
-        <div>Selected: ${routeTags(d.selected_route || d.proposed_route)}</div>
-        <div style="margin-top:4px">Alternate: ${routeTags(d.alternate_route)}</div>
-        ${d.explanation ? `<div style="margin-top:6px;font-style:italic">${d.explanation}</div>` : ''}
-      </div>
-    </div>
-
-    <div class="agent-card">
-      <div class="agent-card-title">
-        <span>3 · Safety</span>
-        <span class="badge badge-${d.is_safe ? 'ok' : 'blocked'}">${d.is_safe ? 'safe' : 'blocked'}</span>
-      </div>
-      <div class="agent-card-body">${d.rejection_reason || 'Route cleared for travel'}</div>
-    </div>
-
-    <div class="agent-card">
-      <div class="agent-card-title">4 · Communication</div>
-      <div class="agent-card-body">${d.final_communication || '—'}</div>
-    </div>
-
-    <div class="agent-card">
-      <div class="agent-card-title">Performance</div>
-      <div class="metrics-grid" style="margin-top:4px">
-        <div class="metric-box">
-          <div class="metric-val">${metricVal(d.routing_time_s, 's', 2)}</div>
-          <div class="metric-lbl">Routing</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-val">${metricVal(d.comm_time_s, 's', 2)}</div>
-          <div class="metric-lbl">Comm</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-val">${metricVal(d.total_time_s, 's', 2)}</div>
-          <div class="metric-lbl">Total</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-val">${metricVal(d.estimated_delay_min, ' min')}</div>
-          <div class="metric-lbl">Est. delay</div>
-        </div>
-      </div>
-    </div>`;
-}
-
-/* ── Render right panel (compare mode) ── */
-function renderCompare(d) {
-  document.getElementById('stat-vehicles').textContent = d.vehicles ?? '—';
-  document.getElementById('stat-congestion').textContent = d.congestion_level || '—';
-
-  const llama = (d.models || {}).llama || {};
-  const gemma = (d.models || {}).gemma || {};
-  const routeColor = cssVar('--col-route');
-  const route2Color = cssVar('--col-route2');
-
-  function modelCard(name, md, col) {
-    return `<div class="compare-model-card" style="border-left-color:${col}">
-      <div class="agent-card-title" style="justify-content:space-between">
-        <span>${name}</span>${badgeHtml(md.congestion_level)}
-      </div>
-      <div class="agent-card-body">
-        <div>Route: ${routeTags(md.proposed_route || md.selected_route)}</div>
-        <div style="margin-top:3px">Alt: ${routeTags(md.alternate_route)}</div>
-        ${md.explanation ? `<div style="margin-top:5px;font-style:italic">${md.explanation}</div>` : ''}
-        <div class="metrics-grid" style="margin-top:8px">
-          <div class="metric-box">
-            <div class="metric-val">${metricVal(md.total_time_s, 's', 2)}</div>
-            <div class="metric-lbl">Total</div>
-          </div>
-          <div class="metric-box">
-            <div class="metric-val">${metricVal(md.estimated_delay_min, ' min')}</div>
-            <div class="metric-lbl">Delay</div>
-          </div>
-        </div>
-      </div>
-    </div>`;
-  }
-
-  document.getElementById('right-panel').innerHTML = `
-    <div class="section-head" style="margin-bottom:4px">Model comparison</div>
-    <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:6px">
-      <div class="legend-row">
-        <div class="legend-line" style="background:${routeColor}"></div>
-        <span>LLaMA 3.3 70B</span>
-      </div>
-      <div class="legend-row">
-        <div class="legend-line" style="background:${route2Color};border-top:1px dashed ${route2Color}"></div>
-        <span>LLaMA 3.1 8B</span>
-      </div>
-    </div>
-    ${modelCard('LLaMA 3.3 70B', llama, routeColor)}
-    ${modelCard('LLaMA 3.1 8B', gemma, route2Color)}
-    <div class="agent-card">
-      <div class="agent-card-title">4 · Communication</div>
-      <div class="agent-card-body">${llama.final_communication || d.final_communication || '—'}</div>
-    </div>`;
-}
-
-/* ── Setting busy state ── */
-function setBusy(busy) {
-  document.getElementById('btn-run').disabled = busy;
-  document.getElementById('btn-compare').disabled = busy;
-  if (busy) {
-    document.getElementById('right-panel').innerHTML = '<div class="empty-state">Running agents…</div>';
-  }
-}
-
-/* ── Mock edge levels (fallback) ── */
-function mockLevels() {
-  const opts = ['LOW','MEDIUM','HIGH'];
-  const obj = {};
-  EDGE_IDS.forEach(id => obj[id] = opts[Math.floor(Math.random() * 3)]);
-  obj['E_F'] = 'LOW';
+function mockLevels(){
+  const opts=['LOW','MEDIUM','HIGH'];
+  const obj={};
+  EDGE_IDS.forEach(id=>obj[id]=opts[Math.floor(Math.random()*3)]);
+  obj['E_F']='LOW';
   return obj;
 }
 
-/* ── Run simulation ── */
-async function runSim() {
-  const src = document.getElementById('src').value;
-  const dst = document.getElementById('dst').value;
-  document.getElementById('map-mode-lbl').textContent = src + ' → ' + dst;
+function setStats(d,time){
+  document.getElementById('sc-veh').textContent=d.vehicles??'—';
+  document.getElementById('sc-cong').textContent=d.congestion_level||'—';
+  document.getElementById('sc-dens').textContent=d.density?Number(d.density).toFixed(2):'—';
+  document.getElementById('sc-time').textContent=time?Number(time).toFixed(2)+'s':'—';
+  document.getElementById('sc-delay').textContent=d.estimated_delay_min?d.estimated_delay_min+' min':'—';
+  document.getElementById('ns-edge').textContent=d.checked_edge||'—';
+  document.getElementById('ns-status').textContent=d.traffic_status||'—';
+  const src=document.getElementById('src').value;
+  const dst=document.getElementById('dst').value;
+  document.getElementById('map-mode').textContent=src+' → '+dst;
+}
+
+function chip(lvl){
+  const cls=lvl==='LOW'?'cu':lvl==='MEDIUM'?'ca':'cd';
+  return `<span class="chip ${cls}">${lvl||'—'}</span>`;
+}
+function safechip(safe){
+  return safe?`<span class="chip cu">safe</span>`:`<span class="chip cd">blocked</span>`;
+}
+function rtags(arr,alt){
+  return (arr||[]).map(r=>`<span class="rtag${alt?' alt':''}">${r}</span>`).join('');
+}
+function mv(v,suf,dec){
+  if(v==null)return'—';
+  return (dec?Number(v).toFixed(dec):v)+(suf||'');
+}
+
+function renderAgents(d){
+  document.getElementById('agent-row-wrap').innerHTML=`
+  <div class="agent-row">
+    <div class="acard" style="animation-delay:.05s">
+      <div class="acard-head"><div class="anum on">1</div><div class="acard-title">Traffic agent</div>${chip(d.congestion_level)}</div>
+      <div class="acard-body">
+        Edge: <code>${d.checked_edge||'—'}</code><br>
+        Vehicles: <strong>${d.vehicles??'—'}</strong> &nbsp;·&nbsp; Density: ${mv(d.density,'',2)}<br>
+        <span style="color:var(--ink3);font-size:11px">${d.traffic_status||'—'}</span>
+      </div>
+    </div>
+    <div class="acard" style="animation-delay:.1s">
+      <div class="acard-head"><div class="anum on">2</div><div class="acard-title">Routing agent</div></div>
+      <div class="acard-body">
+        <div style="font-size:11px;color:var(--ink3);margin-bottom:3px">Selected</div>
+        <div class="rtags">${rtags(d.selected_route||d.proposed_route)}</div>
+        <div class="adiv"></div>
+        <div style="font-size:11px;color:var(--ink3);margin-bottom:3px">Alternate</div>
+        <div class="rtags">${rtags(d.alternate_route,true)}</div>
+        ${d.explanation?`<div style="margin-top:8px;font-style:italic;color:var(--ink3);font-size:11px;line-height:1.6">"${d.explanation}"</div>`:''}
+      </div>
+    </div>
+    <div class="acard" style="animation-delay:.15s">
+      <div class="acard-head"><div class="anum on">3</div><div class="acard-title">Safety agent</div>${safechip(d.is_safe)}</div>
+      <div class="acard-body">${d.rejection_reason||'Route is cleared for travel.'}</div>
+    </div>
+    <div class="acard perf" style="animation-delay:.2s">
+      <div class="acard-head">
+        <div class="anum on">4</div>
+        <div class="acard-title">Communication</div>
+      </div>
+      <div class="acard-body" style="font-style:italic;margin-bottom:12px">${d.final_communication||'—'}</div>
+      <div class="adiv"></div>
+      <div style="font-size:11px;color:var(--sage-d);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px">Performance</div>
+      <div class="mbox-row">
+        <div class="mbox"><div class="mbox-v">${mv(d.routing_time_s,'s',2)}</div><div class="mbox-l">Routing</div></div>
+        <div class="mbox"><div class="mbox-v">${mv(d.comm_time_s,'s',2)}</div><div class="mbox-l">Comm</div></div>
+        <div class="mbox"><div class="mbox-v">${mv(d.total_time_s,'s',2)}</div><div class="mbox-l">Total</div></div>
+        <div class="mbox"><div class="mbox-v">${mv(d.estimated_delay_min,' m')}</div><div class="mbox-l">Delay</div></div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderCompare(d){
+  const ll=d.models?.llama||{},gm=d.models?.gemma||{};
+  document.getElementById('agent-row-wrap').innerHTML=`
+  <div class="compare-row">
+    <div class="ccard" style="border-left-color:#3d5c44">
+      <div class="ccard-head"><span class="ccard-title">LLaMA 3.3 70B</span>${chip(ll.congestion_level)}</div>
+      <div style="font-size:11px;color:var(--ink3);margin-bottom:4px">Route</div>
+      <div class="rtags">${rtags(ll.proposed_route||ll.selected_route)}</div>
+      <div class="adiv"></div>
+      <div style="font-size:11px;color:var(--ink3);margin-bottom:4px">Alternate</div>
+      <div class="rtags">${rtags(ll.alternate_route,true)}</div>
+      ${ll.explanation?`<div style="margin-top:8px;font-size:11px;font-style:italic;color:var(--ink3)">"${ll.explanation}"</div>`:''}
+      <div class="mbox-row" style="margin-top:12px">
+        <div class="mbox"><div class="mbox-v">${mv(ll.total_time_s,'s',2)}</div><div class="mbox-l">Total</div></div>
+        <div class="mbox"><div class="mbox-v">${mv(ll.estimated_delay_min,' m')}</div><div class="mbox-l">Delay</div></div>
+      </div>
+    </div>
+    <div class="ccard" style="border-left-color:#8a4a1a">
+      <div class="ccard-head"><span class="ccard-title">LLaMA 3.1 8B</span>${chip(gm.congestion_level)}</div>
+      <div style="font-size:11px;color:var(--ink3);margin-bottom:4px">Route</div>
+      <div class="rtags">${rtags(gm.proposed_route||gm.selected_route)}</div>
+      <div class="adiv"></div>
+      <div style="font-size:11px;color:var(--ink3);margin-bottom:4px">Alternate</div>
+      <div class="rtags">${rtags(gm.alternate_route,true)}</div>
+      ${gm.explanation?`<div style="margin-top:8px;font-size:11px;font-style:italic;color:var(--ink3)">"${gm.explanation}"</div>`:''}
+      <div class="mbox-row" style="margin-top:12px">
+        <div class="mbox"><div class="mbox-v">${mv(gm.total_time_s,'s',2)}</div><div class="mbox-l">Total</div></div>
+        <div class="mbox"><div class="mbox-v">${mv(gm.estimated_delay_min,' m')}</div><div class="mbox-l">Delay</div></div>
+      </div>
+    </div>
+    <div class="acard" style="animation-delay:.15s">
+      <div class="acard-head"><div class="anum on">4</div><div class="acard-title">Communication</div></div>
+      <div class="acard-body" style="font-style:italic">${ll.final_communication||d.final_communication||'—'}</div>
+      <div class="adiv"></div>
+      <div style="font-size:11px;color:var(--ink3)">Safety</div>
+      <div style="margin-top:4px;display:flex;gap:8px;align-items:center">
+        <span>LLaMA 70B:</span>${safechip(ll.is_safe)}
+        <span style="margin-left:8px">LLaMA 8B:</span>${safechip(gm.is_safe)}
+      </div>
+    </div>
+  </div>`;
+}
+
+function setLoading(){
+  document.getElementById('agent-row-wrap').innerHTML=`
+  <div class="agent-row">
+    <div class="acard" style="grid-column:1/-1">
+      <div class="empty">
+        <div class="empty-icon" style="animation:spin 1s linear infinite">
+          <svg viewBox="0 0 20 20"><path d="M10 3a7 7 0 110 14A7 7 0 0110 3z"/><path d="M10 3a7 7 0 017 7" stroke-linecap="round" stroke="var(--sage)" stroke-width="2" fill="none"/></svg>
+        </div>
+        <div class="empty-txt">Running agents…</div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function setEmpty(){
+  document.getElementById('agent-row-wrap').innerHTML=`
+  <div class="agent-row">
+    <div class="acard" style="grid-column:1/-1">
+      <div class="empty">
+        <div class="empty-icon">
+          <svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7"/><path d="M10 7v3l2 2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="empty-txt">Select source &amp; destination and run a simulation<br>to see agent outputs here</div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function setBusy(b){
+  document.getElementById('btn-run').disabled=b;
+  document.getElementById('btn-cmp').disabled=b;
+  if(b)setLoading();
+}
+
+async function runSim(){
   setBusy(true);
-  try {
-    const resp = await fetch(`/analyze?source=${src}&destination=${dst}`);
-    if (!resp.ok) throw new Error('API error');
-    const d = await resp.json();
-    const levels = mockLevels();
-    updateEdgeList(levels);
-    renderMap(d.selected_route || d.proposed_route, [], levels);
+  const src=document.getElementById('src').value;
+  const dst=document.getElementById('dst').value;
+  try{
+    const r=await fetch(`/analyze?source=${src}&destination=${dst}`);
+    if(!r.ok)throw new Error();
+    const d=await r.json();
+    const lvls=mockLevels();
+    setStats(d,d.total_time_s);
+    renderEdgeStrip(lvls);
+    renderMap(d.selected_route||d.proposed_route,[],lvls);
     renderAgents(d);
-  } catch {
-    const levels = mockLevels();
-    const mock = {
-      congestion_level: 'MEDIUM', checked_edge: 'A_E', vehicles: 12, density: 0.06,
-      traffic_status: 'MEDIUM Congestion',
-      selected_route: ['A_E','E_F','F_D'], alternate_route: ['A_B','B_C','C_D'],
-      explanation: 'Route via E_F is optimal due to low vehicle density on that segment.',
-      is_safe: true, rejection_reason: null,
-      final_communication: 'Proceed via nodes E and F — road is clear. Estimated delay: 8 min.',
-      routing_time_s: 1.23, comm_time_s: 0.98, total_time_s: 2.21, estimated_delay_min: 8
-    };
-    updateEdgeList(levels);
-    renderMap(mock.selected_route, [], levels);
+  }catch{
+    const lvls=mockLevels();
+    const mock={congestion_level:'MEDIUM',checked_edge:'A_E',vehicles:12,density:0.06,traffic_status:'MEDIUM congestion',selected_route:['A_E','E_F','F_D'],proposed_route:['A_E','E_F','F_D'],alternate_route:['A_B','B_C','C_D'],explanation:'Route via E_F is optimal — lowest vehicle density.',is_safe:true,rejection_reason:null,final_communication:'Head south through E and F. Road is clear. Estimated delay: 8 min.',routing_time_s:1.23,comm_time_s:0.98,total_time_s:2.21,estimated_delay_min:8};
+    setStats(mock,mock.total_time_s);
+    renderEdgeStrip(lvls);
+    renderMap(mock.selected_route,[],lvls);
     renderAgents(mock);
-  } finally {
-    setBusy(false);
-  }
+  }finally{setBusy(false);}
 }
 
-/* ── Compare models ── */
-async function runCompare() {
-  const src = document.getElementById('src').value;
-  const dst = document.getElementById('dst').value;
-  document.getElementById('map-mode-lbl').textContent = src + ' → ' + dst + ' (compare)';
+async function runCompare(){
   setBusy(true);
-  try {
-    const resp = await fetch(`/compare?source=${src}&destination=${dst}`);
-    if (!resp.ok) throw new Error('API error');
-    const d = await resp.json();
-    const levels = mockLevels();
-    updateEdgeList(levels);
-    const r1 = (d.models?.llama?.proposed_route || d.models?.llama?.selected_route || []);
-    const r2 = (d.models?.gemma?.proposed_route || d.models?.gemma?.selected_route || []);
-    renderMap(r1, r2, levels);
+  const src=document.getElementById('src').value;
+  const dst=document.getElementById('dst').value;
+  try{
+    const r=await fetch(`/compare?source=${src}&destination=${dst}`);
+    if(!r.ok)throw new Error();
+    const d=await r.json();
+    const lvls=mockLevels();
+    setStats(d,d.models?.llama?.total_time_s);
+    renderEdgeStrip(lvls);
+    const r1=d.models?.llama?.proposed_route||d.models?.llama?.selected_route||[];
+    const r2=d.models?.gemma?.proposed_route||d.models?.gemma?.selected_route||[];
+    renderMap(r1,r2,lvls);
     renderCompare(d);
-  } catch {
-    const levels = mockLevels();
-    const mock = {
-      vehicles: 12, density: 0.06, congestion_level: 'MEDIUM',
-      models: {
-        llama: {
-          congestion_level: 'MEDIUM',
-          proposed_route: ['A_E','E_F','F_D'], alternate_route: ['A_B','B_C','C_D'],
-          explanation: 'Southern path via E_F is fastest under current load.',
-          is_safe: true, final_communication: 'Head south through E and F. Road is open.',
-          total_time_s: 2.21, estimated_delay_min: 8
-        },
-        gemma: {
-          congestion_level: 'MEDIUM',
-          proposed_route: ['A_B','B_C','C_D'], alternate_route: ['A_E','E_F','F_D'],
-          explanation: 'Northern corridor avoids potential southern congestion.',
-          is_safe: true,
-          total_time_s: 1.87, estimated_delay_min: 10
-        }
-      }
-    };
-    updateEdgeList(levels);
-    renderMap(mock.models.llama.proposed_route, mock.models.gemma.proposed_route, levels);
+  }catch{
+    const lvls=mockLevels();
+    const mock={vehicles:12,density:0.06,congestion_level:'MEDIUM',traffic_status:'MEDIUM congestion',checked_edge:'A_E',estimated_delay_min:8,models:{llama:{congestion_level:'MEDIUM',proposed_route:['A_E','E_F','F_D'],selected_route:['A_E','E_F','F_D'],alternate_route:['A_B','B_C','C_D'],explanation:'Southern path via E_F is fastest under current load.',is_safe:true,final_communication:'Head south through E and F. Road is open.',total_time_s:2.21,estimated_delay_min:8},gemma:{congestion_level:'MEDIUM',proposed_route:['A_B','B_C','C_D'],selected_route:['A_B','B_C','C_D'],alternate_route:['A_E','E_F','F_D'],explanation:'Northern corridor avoids southern congestion.',is_safe:true,total_time_s:1.87,estimated_delay_min:10}}};
+    setStats(mock,mock.models.llama.total_time_s);
+    renderEdgeStrip(lvls);
+    renderMap(mock.models.llama.proposed_route,mock.models.gemma.proposed_route,lvls);
     renderCompare(mock);
-  } finally {
-    setBusy(false);
-  }
+  }finally{setBusy(false);}
 }
 
-/* ── Init ── */
 loadNodes();
 checkHealth();
-renderMap([], [], null);
-updateEdgeList(null);
+renderMap([],[],null);
+renderEdgeStrip(null);
+setEmpty();
 </script>
 </body>
 </html>
